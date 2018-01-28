@@ -2,7 +2,7 @@ const bcrypt = require("bcrypt-nodejs");
 
 module.exports = (sequelize , DataTypes) =>
 {
-    var Guide = sequelize.define("guides", {
+    var Trip = sequelize.define("trips", {
         id: {
             type: DataTypes.INTEGER(10).UNSIGNED,
             autoIncrement: true,
@@ -13,12 +13,12 @@ module.exports = (sequelize , DataTypes) =>
             type: DataTypes.STRING,
             field: 'name'
         },
-        surname: {
+        description: {
             type: DataTypes.STRING,
-            field: 'surname'
+            field: 'description'
         },
-        email: {
-            field: 'email',
+        create_id: {
+            field: 'creater_id',
             type: DataTypes.STRING(191),
             primaryKey: false,
             allowNull: false,
@@ -32,35 +32,35 @@ module.exports = (sequelize , DataTypes) =>
             allowNull: false,
             autoIncrement: false,
         },
-        tel:{
+        tel: {
             field: 'tel',
             type: DataTypes.STRING(191),
-            primaryKey:false,
-            allowNull:false,
-            autoIncreament:null
+            primaryKey: false,
+            allowNull: false,
+            autoIncreament: null
         },
-        address:{
-          field:'address',
-          type:DataTypes.STRING(191),
-          primaryKey:false,
-          allowNull:false,
-          autoIncreament:null
+        address: {
+            field: 'address',
+            type: DataTypes.STRING(191),
+            primaryKey: false,
+            allowNull: false,
+            autoIncreament: null
         },
-        codeguide:{
-            field:'code_guide',
-            type:DataTypes.STRING(191),
-            allowNull:false,
-            autoIncreament:null
+        codeguide: {
+            field: 'code_guide',
+            type: DataTypes.STRING(191),
+            allowNull: false,
+            autoIncreament: null
         },
-        gender:{
-            field:'gender',
-            type:DataTypes.STRING(191),
-            allowNull:false,
-            autoIncreament:null
+        gender: {
+            field: 'gender',
+            type: DataTypes.STRING(191),
+            allowNull: false,
+            autoIncreament: null
         },
-        DOB:{
-            field:'DOB',
-            type:DataTypes.DATEONLY
+        DOB: {
+            field: 'DOB',
+            type: DataTypes.DATEONLY
         },
         createdAt: {
             field: 'created_at',
@@ -84,22 +84,8 @@ module.exports = (sequelize , DataTypes) =>
         }
 
     });
-    Guide.beforeCreate((user, options) => {
-        user.password = bcrypt.hashSync(user.password);
-});
-    Guide.comparePassword = function(email,candidatePassword,callback){
 
+}
 
-        Guide.findOne({where:{email:email}}).then(guide=>{
-            console.log(email);
-        console.log(candidatePassword,guide.password);
-        bcrypt.compare(candidatePassword,guide.password,function (err,isMatch) {
-            if(err){return callback(err)}
-            callback(null,isMatch);
-        });
-    });
-
-    }
-
-    return Guide;
+return Trip;
 }

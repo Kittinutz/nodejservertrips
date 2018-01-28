@@ -3,8 +3,12 @@ const http = require('http');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
+/******** ROUTER********/
 const userrouter = require('./router/usersrouter');
+const guiderrouter = require('./router/guiderouter');
+const task = require('./router/Taskrouter');
 const morgan = require('morgan');
+
 
 const fs        = require('fs');
 const path      = require('path');
@@ -19,8 +23,11 @@ app.use(morgan('combined'));
 app.use(bodyParser.json({type:'*/*'}));
 /***************************************/
 
+app.use(cors());
 
 userrouter(app);
+guiderrouter(app);
+task(app);
 
  /****************SETUP Server*************/
 const port = process.env.PORT || 5011;

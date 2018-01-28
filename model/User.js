@@ -28,6 +28,20 @@ module.exports = (sequelize , DataTypes) =>
             allowNull: false,
             autoIncrement: false,
         },
+      provider: {
+          field: 'provider',
+          type: DataTypes.STRING(191),
+          primaryKey: false,
+          allowNull: true,
+          autoIncrement: false,
+      },
+      provider: {
+          field: 'provider',
+          type: DataTypes.STRING(191),
+          primaryKey: false,
+          allowNull: true,
+          autoIncrement: false,
+      },
         createdAt: {
             field: 'created_at',
             type: DataTypes.DATE,
@@ -40,15 +54,25 @@ module.exports = (sequelize , DataTypes) =>
             primaryKey: false,
         }
     }, {
-      hooks: {
-          beforeCreate: () => {
 
-      }
-  }
+      //option
     });
     User.beforeCreate((user, options) => {
        user.password = bcrypt.hashSync(user.password);
     });
+    User.comparePassword = function(email,candidatePassword,callback){
+
+
+        User.findOne({where:{email:email}}).then(user=>{
+            console.log(email);
+            console.log(candidatePassword,user.password);
+            bcrypt.compare(candidatePassword,user.password,function (err,isMatch) {
+            if(err){return callback(err)}
+            callback(null,isMatch);
+        });
+        });
+
+    }
 
 
     return User;
