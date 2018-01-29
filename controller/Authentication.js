@@ -19,14 +19,14 @@ exports.signup = function (req, res, next) {
     }
 
 
-    models.Guides.findOne({
+    models.User.findOne({
         where: {email: req.body.email}
-    }).then(guide => {
-        if(!guide)
+    }).then(user => {
+        if(!user)
     {
-        models.Guide.create(req.body).then(guide => {
+        models.User.create(req.body).then(user => {
 
-        return res.json({token: tokenForUser(guide)});
+        return res.json({token: tokenForUser(user)});
     }).
         catch(function (err) {
             return res.status(400).send({message: err.message}); //

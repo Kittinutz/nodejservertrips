@@ -17,21 +17,17 @@ module.exports = (sequelize , DataTypes) =>
             type: DataTypes.STRING,
             field: 'appointment'
         },
-        create_id: {
-            field: 'creater_id',
-            type: DataTypes.STRING(191),
+        createdAt: {
+            field: 'created_at',
+            type: DataTypes.DATE,
             primaryKey: false,
-            allowNull: false,
             autoIncrement: false,
-            unique: 'compositeIndex'
-        }
-    }, {
-        classMethods: {
-            associate: function (models) {
-                Task.hasMany(Post, {
-                    foreignKey: 'userId'
-                });
-            }
+        },
+        updatedAt: {
+            field: 'updated_at',
+            type: DataTypes.DATE,
+            primaryKey: false,
+            autoIncrement: false,
         }
     });
 

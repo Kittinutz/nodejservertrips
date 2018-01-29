@@ -28,6 +28,14 @@ module.exports = (sequelize , DataTypes) =>
             allowNull: false,
             autoIncrement: false,
         },
+      avatar: {
+          field: 'avatar',
+          type: DataTypes.STRING(191),
+          primaryKey: false,
+          allowNull: true,
+          autoIncrement: false,
+          defaultValue: 'Default.jpg',
+      },
       provider: {
           field: 'provider',
           type: DataTypes.STRING(191),
