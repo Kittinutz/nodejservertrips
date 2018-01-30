@@ -1,7 +1,7 @@
 const models = require('../model/Providers');
 const jwt = require('jwt-simple');
 const config = require('../config');
-const service = require('../service/UserServices');
+
 const moment = require('moment');
 
  function tokenForUser(user) {
