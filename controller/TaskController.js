@@ -15,27 +15,5 @@ exports.CreateTask = function (req,res,next) {
             console.log(value);
     });
     });
-// //     models.Task.findAll({
-// //         include:models.Activities
-// //     }).then(response=>{
-// //         res.send(response)
-// // })
-//     config.sequelize.sync({
-//         forece:true
-//     }).then(function(){
-//         models.Task.create({
-//             user_id:'2',
-//             appointment:'2018-09-10',
-//
-//         }).then(function(user){
-//             res.send(user);
-//         }).then(function(){
-//             console.log('abbc');
-//         }).catch(function(){
-//             console.log('error');
-//         });
-//     });
-
-
 
 }

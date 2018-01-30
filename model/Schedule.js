@@ -2,37 +2,26 @@ const bcrypt = require("bcrypt-nodejs");
 
 module.exports = (sequelize , DataTypes) =>
 {
-    var Trip = sequelize.define("trips", {
+    var Schedule = sequelize.define("schedules", {
         id: {
             type: DataTypes.INTEGER(10).UNSIGNED,
             autoIncrement: true,
             field: 'id',
             primaryKey: true
         },
-        name: {
-            type: DataTypes.STRING,
-            field: 'name'
+        trip_id: {
+            type: DataTypes.INTEGER(10),
+            field: 'trip_id'
+
+
         },
-        description: {
-            type: DataTypes.STRING,
-            field: 'description'
-        },
-        creater_id: {
-            field: 'creater_id',
+        time: {
+            field: 'time',
             type: DataTypes.STRING(191),
-            primaryKey: false,
-            allowNull: false,
-            autoIncrement: false,
-            unique: 'compositeIndex'
         },
-        location: {
-            field: 'location',
+        description:{
+            field:'description',
             type: DataTypes.STRING(191),
-            defaultValue:'Phuket',
-        },
-        price:{
-          field:'price',
-          type: DataTypes.INTEGER,
         },
         createdAt: {
             field: 'created_at',
@@ -46,9 +35,11 @@ module.exports = (sequelize , DataTypes) =>
             primaryKey: false,
             autoIncrement: false,
         }
+    }, {
+
     });
-    return Trip;
+
+
+
+    return Schedule;
 }
-
-
-

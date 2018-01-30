@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa98b223-196e-4902-8bf2-e9280be30d9a" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/controller/TripController.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/model/Schedule.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/controller/Authentication.js" afterPath="$PROJECT_DIR$/controller/Authentication.js" />
+      <change beforePath="$PROJECT_DIR$/controller/GuideAuthentication.js" afterPath="$PROJECT_DIR$/controller/GuideAuthentication.js" />
       <change beforePath="$PROJECT_DIR$/controller/TaskController.js" afterPath="$PROJECT_DIR$/controller/TaskController.js" />
-      <change beforePath="$PROJECT_DIR$/model/Activities.js" afterPath="$PROJECT_DIR$/model/Activities.js" />
       <change beforePath="$PROJECT_DIR$/model/Providers.js" afterPath="$PROJECT_DIR$/model/Providers.js" />
-      <change beforePath="$PROJECT_DIR$/model/Task.js" afterPath="$PROJECT_DIR$/model/Task.js" />
-      <change beforePath="$PROJECT_DIR$/model/Task_Activities.js" afterPath="$PROJECT_DIR$/model/Task_Activities.js" />
-      <change beforePath="$PROJECT_DIR$/model/User.js" afterPath="$PROJECT_DIR$/model/User.js" />
+      <change beforePath="$PROJECT_DIR$/model/Trip.js" afterPath="$PROJECT_DIR$/model/Trip.js" />
+      <change beforePath="$PROJECT_DIR$/router/guiderouter.js" afterPath="$PROJECT_DIR$/router/guiderouter.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,13 +20,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Providers.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Providers.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/model/Providers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="84" lean-forward="false" selection-start-line="25" selection-start-column="74" selection-end-line="25" selection-end-column="84" />
+            <state relative-caret-position="510">
+              <caret line="34" column="38" lean-forward="false" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="38" />
               <folding>
-                <marker date="1517229057567" expanded="true" signature="1036:1190" ph="..." />
+                <marker date="1517311509020" expanded="true" signature="1242:1396" ph="..." />
               </folding>
             </state>
           </provider>
@@ -35,68 +35,48 @@
       <file leaf-file-name="User.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model/User.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="36" column="38" lean-forward="false" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="38" />
+            <state relative-caret-position="389">
+              <caret line="36" column="22" lean-forward="false" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Guide.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/Guide.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="694">
-              <caret line="49" column="29" lean-forward="false" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Authentication.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/Authentication.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="21" column="25" lean-forward="false" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Task_Activities.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/Task_Activities.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="53" lean-forward="false" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="usersrouter.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/router/usersrouter.js">
+      <file leaf-file-name="Schedule.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/Schedule.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="195">
-              <caret line="13" column="1" lean-forward="false" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+              <caret line="13" column="28" lean-forward="true" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TaskController.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/controller/TaskController.js">
+      <file leaf-file-name="TripController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controller/TripController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="31" lean-forward="true" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+            <state relative-caret-position="570">
+              <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Task.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/Task.js">
+      <file leaf-file-name="Trip.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/Trip.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="5" lean-forward="false" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+            <state relative-caret-position="274">
+              <caret line="30" column="32" lean-forward="false" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="guiderouter.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/router/guiderouter.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" column="29" lean-forward="false" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -105,18 +85,38 @@
       <file leaf-file-name="GuideAuthentication.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controller/GuideAuthentication.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="621">
-              <caret line="64" column="46" lean-forward="false" selection-start-line="64" selection-start-column="46" selection-end-line="64" selection-end-column="46" />
+            <state relative-caret-position="581">
+              <caret line="62" column="54" lean-forward="true" selection-start-line="62" selection-start-column="4" selection-end-line="62" selection-end-column="54" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Activities.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/Activities.js">
+      <file leaf-file-name="Task_Activities.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/Task_Activities.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="15" lean-forward="false" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
+            <state relative-caret-position="0">
+              <caret line="0" column="40" lean-forward="true" selection-start-line="0" selection-start-column="40" selection-end-line="0" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TaskController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controller/TaskController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Taskrouter.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/router/Taskrouter.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="63" lean-forward="true" selection-start-line="0" selection-start-column="63" selection-end-line="0" selection-end-column="63" />
               <folding />
             </state>
           </provider>
@@ -155,19 +155,21 @@
         <option value="$PROJECT_DIR$/config.js" />
         <option value="$PROJECT_DIR$/model/Guide.js" />
         <option value="$PROJECT_DIR$/service/Passport.js" />
-        <option value="$PROJECT_DIR$/model/Trip.js" />
         <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/router/usersrouter.js" />
-        <option value="$PROJECT_DIR$/router/guiderouter.js" />
-        <option value="$PROJECT_DIR$/controller/GuideAuthentication.js" />
         <option value="$PROJECT_DIR$/router/Taskrouter.js" />
         <option value="$PROJECT_DIR$/controller/Authentication.js" />
         <option value="$PROJECT_DIR$/model/User.js" />
         <option value="$PROJECT_DIR$/model/Task_Activities.js" />
         <option value="$PROJECT_DIR$/model/Task.js" />
         <option value="$PROJECT_DIR$/model/Activities.js" />
-        <option value="$PROJECT_DIR$/model/Providers.js" />
+        <option value="$PROJECT_DIR$/controller/GuideAuthentication.js" />
+        <option value="$PROJECT_DIR$/model/Trip.js" />
         <option value="$PROJECT_DIR$/controller/TaskController.js" />
+        <option value="$PROJECT_DIR$/model/Schedule.js" />
+        <option value="$PROJECT_DIR$/router/guiderouter.js" />
+        <option value="$PROJECT_DIR$/controller/TripController.js" />
+        <option value="$PROJECT_DIR$/model/Providers.js" />
       </list>
     </option>
   </component>
@@ -275,12 +277,12 @@
       <workItem from="1516645869018" duration="4774000" />
       <workItem from="1516715169629" duration="39777000" />
       <workItem from="1517047324072" duration="103000" />
-      <workItem from="1517047476940" duration="28886000" />
+      <workItem from="1517047476940" duration="34748000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73540000" />
+    <option name="totallyTimeSpent" value="79402000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1200" extended-state="0" />
@@ -320,22 +322,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/model/Guide.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="49" column="29" lean-forward="false" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/Authentication.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="1" lean-forward="false" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/model/Providers.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -595,22 +581,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/router/Taskrouter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="25" lean-forward="false" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/guiderouter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="63" lean-forward="false" selection-start-line="9" selection-start-column="63" selection-end-line="9" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/sequelize.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -619,10 +589,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/Trip.js">
+    <entry file="file://$PROJECT_DIR$/model/Activities.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="75" column="9" lean-forward="true" selection-start-line="64" selection-start-column="8" selection-end-line="75" selection-end-column="9" />
+        <state relative-caret-position="60">
+          <caret line="4" column="15" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/Authentication.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -637,75 +615,99 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/model/Guide.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="694">
-          <caret line="49" column="29" lean-forward="false" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/User.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="36" column="38" lean-forward="false" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/Task_Activities.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="53" lean-forward="false" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="53" />
+        <state relative-caret-position="-2">
+          <caret line="6" column="41" lean-forward="false" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model/Task.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="5" lean-forward="false" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+        <state relative-caret-position="285">
+          <caret line="19" column="7" lean-forward="true" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/User.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="36" column="22" lean-forward="false" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/Task_Activities.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="40" lean-forward="true" selection-start-line="0" selection-start-column="40" selection-end-line="0" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/GuideAuthentication.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="64" column="46" lean-forward="false" selection-start-line="64" selection-start-column="46" selection-end-line="64" selection-end-column="46" />
+        <state relative-caret-position="581">
+          <caret line="62" column="54" lean-forward="true" selection-start-line="62" selection-start-column="4" selection-end-line="62" selection-end-column="54" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/Authentication.js">
+    <entry file="file://$PROJECT_DIR$/router/Taskrouter.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="21" column="25" lean-forward="false" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+        <state relative-caret-position="0">
+          <caret line="0" column="63" lean-forward="true" selection-start-line="0" selection-start-column="63" selection-end-line="0" selection-end-column="63" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/Providers.js">
+    <entry file="file://$PROJECT_DIR$/router/guiderouter.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="84" lean-forward="false" selection-start-line="25" selection-start-column="74" selection-end-line="25" selection-end-column="84" />
-          <folding>
-            <marker date="1517229057567" expanded="true" signature="1036:1190" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/Activities.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="15" lean-forward="false" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
+        <state relative-caret-position="195">
+          <caret line="13" column="29" lean-forward="false" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/TaskController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="31" lean-forward="true" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+        <state relative-caret-position="270">
+          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/TripController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/Trip.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="30" column="32" lean-forward="false" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/Schedule.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="28" lean-forward="true" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/Providers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" column="38" lean-forward="false" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="38" />
+          <folding>
+            <marker date="1517311509020" expanded="true" signature="1242:1396" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

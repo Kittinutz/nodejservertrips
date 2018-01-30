@@ -1,16 +1,15 @@
 const models = require('../model/Providers');
 const jwt = require('jwt-simple');
 const config = require('../config');
-const guide = require('../model/Guide');
 const service = require('../service/UserServices');
 const moment = require('moment');
 
-function tokenForUser(user) {
+ function tokenForUser(user) {
     const timestamp = new Date().getTime();
     return jwt.encode({sub: user.id, iat: timestamp}, config.secret);
 
 }
-function tokenDecode(user){
+ function tokenDecode(user){
     return jwt.decode(user,config.secret);
 }
 
