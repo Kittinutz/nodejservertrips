@@ -1,5 +1,4 @@
 const user = require('../model/User');
-const service = require('../service/UserServices');
 const moment = require('moment');
 const models = require('../model/Providers');
 const jwt = require('jwt-simple');
