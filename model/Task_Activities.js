@@ -1,8 +1,8 @@
 const bcrypt = require("bcrypt-nodejs");
-
+const models = require('./Providers');
 module.exports = (sequelize , DataTypes) =>
 {
-    var Task_Act = sequelize.define("tasks", {
+    var Task_Act = sequelize.define("tasks_activities", {
         id: {
             type: DataTypes.INTEGER(10).UNSIGNED,
             autoIncrement: true,
@@ -12,17 +12,23 @@ module.exports = (sequelize , DataTypes) =>
         task_id: {
             type: DataTypes.INTEGER(10).UNSIGNED,
             field: 'task_id',
-            references: 'tasks',
-            referencesKey: 'id',
+            references: {
+                model:models.Task,
+                key: 'id'
+            },
             allowNull: false
         },
         activitie_id: {
             type: DataTypes.INTEGER(10).UNSIGNED,
             field: 'activitie_id',
-            references: 'activities',
-            referencesKey: 'id',
+            references: {
+                model:models.Activities,
+                key: 'id'
+            },
+
             allowNull: false
-        },createdAt: {
+        },
+        createdAt: {
             field: 'created_at',
             type: DataTypes.DATE,
             primaryKey: false,

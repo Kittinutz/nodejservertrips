@@ -17,7 +17,7 @@ module.exports = (sequelize , DataTypes) =>
             type: DataTypes.STRING,
             field: 'description'
         },
-        create_id: {
+        creater_id: {
             field: 'creater_id',
             type: DataTypes.STRING(191),
             primaryKey: false,
@@ -25,42 +25,14 @@ module.exports = (sequelize , DataTypes) =>
             autoIncrement: false,
             unique: 'compositeIndex'
         },
-        password: {
-            field: 'password',
+        location: {
+            field: 'location',
             type: DataTypes.STRING(191),
-            primaryKey: false,
-            allowNull: false,
-            autoIncrement: false,
+            defaultValue:'Phuket',
         },
-        tel: {
-            field: 'tel',
-            type: DataTypes.STRING(191),
-            primaryKey: false,
-            allowNull: false,
-            autoIncreament: null
-        },
-        address: {
-            field: 'address',
-            type: DataTypes.STRING(191),
-            primaryKey: false,
-            allowNull: false,
-            autoIncreament: null
-        },
-        codeguide: {
-            field: 'code_guide',
-            type: DataTypes.STRING(191),
-            allowNull: false,
-            autoIncreament: null
-        },
-        gender: {
-            field: 'gender',
-            type: DataTypes.STRING(191),
-            allowNull: false,
-            autoIncreament: null
-        },
-        DOB: {
-            field: 'DOB',
-            type: DataTypes.DATEONLY
+        price:{
+          field:'price',
+          type: DataTypes.INTEGER,
         },
         createdAt: {
             field: 'created_at',
@@ -74,18 +46,9 @@ module.exports = (sequelize , DataTypes) =>
             primaryKey: false,
             autoIncrement: false,
         }
-    }, {
-        classMethods: {
-            associate: function (models) {
-                User.hasMany(Post, {
-                    foreignKey: 'userId'
-                });
-            }
-        }
-
     });
-
+    return Trip;
 }
 
-return Trip;
-}
+
+

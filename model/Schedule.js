@@ -2,20 +2,26 @@ const bcrypt = require("bcrypt-nodejs");
 
 module.exports = (sequelize , DataTypes) =>
 {
-    var Task = sequelize.define("tasks", {
+    var Schedule = sequelize.define("schedules", {
         id: {
             type: DataTypes.INTEGER(10).UNSIGNED,
             autoIncrement: true,
             field: 'id',
             primaryKey: true
         },
-        user_id: {
-            type: DataTypes.INTEGER(10).UNSIGNED,
-            field: 'user_id',
+        trip_id: {
+            type: DataTypes.INTEGER(10),
+            field: 'trip_id'
+
+
         },
-        appointment: {
-            type: DataTypes.STRING,
-            field: 'appointment'
+        time: {
+            field: 'time',
+            type: DataTypes.STRING(191),
+        },
+        description:{
+            field:'description',
+            type: DataTypes.STRING(191),
         },
         createdAt: {
             field: 'created_at',
@@ -29,9 +35,11 @@ module.exports = (sequelize , DataTypes) =>
             primaryKey: false,
             autoIncrement: false,
         }
+    }, {
+
     });
 
 
 
-    return Task;
+    return Schedule;
 }

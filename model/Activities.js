@@ -2,7 +2,7 @@ const bcrypt = require("bcrypt-nodejs");
 
 module.exports = (sequelize , DataTypes) =>
 {
-    var Activities = sequelize.define("tasks", {
+    var Activities = sequelize.define("activities", {
         id: {
             type: DataTypes.INTEGER(10).UNSIGNED,
             autoIncrement: true,
@@ -13,12 +13,14 @@ module.exports = (sequelize , DataTypes) =>
             type: DataTypes.STRING(191),
             field: 'name',
             allowNull: false,
+            unique: 'compositeIndex',
         },
         status: {
             field: 'status',
             type: DataTypes.ENUM('on', 'off'),
             allowNull: false,
-            unique: 'compositeIndex'
+            unique: 'compositeIndex',
+            defaultValue: 'on'
         },
         createdAt: {
             field: 'created_at',
@@ -33,13 +35,7 @@ module.exports = (sequelize , DataTypes) =>
             autoIncrement: false,
         }
     }, {
-        classMethods: {
-            associate: function (models) {
-                Task.hasMany(Post, {
-                    foreignKey: 'userId'
-                });
-            }
-        }
+
     });
 
 
