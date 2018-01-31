@@ -14,8 +14,8 @@ exports.getactivities = function (req,res,next) {
 
 exports.getlanguages = function (req,res,next) {
     models.Languages.findAll({
-        attributes:['id','languages']
+        attributes:['id','name']
     }).then(languages=>{
-        res.send(JSON.stringify(languages));
+        res.send(languages);
 })
 };

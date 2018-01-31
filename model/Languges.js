@@ -9,9 +9,9 @@ module.exports = (sequelize , DataTypes) =>
             field: 'id',
             primaryKey: true
         },
-        langugas: {
+        name: {
             type: DataTypes.STRING(191),
-            field: 'langugas',
+            field: 'languages',
             allowNull: false,
             unique: 'compositeIndex',
         },
