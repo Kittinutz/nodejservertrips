@@ -8,6 +8,6 @@ exports.getactivities = function (req,res,next) {
         models.Activities.findAll({
             attributes:['id','name']
         }).then(activities=>{
-            res.send(activities);
+            res.send(JSON.stringify(activities));
         })
 };
