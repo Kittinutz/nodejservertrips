@@ -8,6 +8,7 @@ const Activities = require('../model/Activities')(config.sequelize, config.Seque
 const Task_Activities = require('../model/Task_Activities')(config.sequelize, config.Sequelize);
 const Trip =  require('../model/Trip')(config.sequelize, config.Sequelize);
 const Schedule = require('../model/Schedule')(config.sequelize,config.Sequelize);
+const Languges = require('../model/Languges')(config.sequelize,config.Sequelize);
 /* DEFIND MODEL */
 models.User = User;
 models.Guide = Guide;
@@ -16,6 +17,7 @@ models.Activities = Activities;
 models.Task_Activities = Task_Activities;
 models.Trip = Trip;
 models.Schedule = Schedule;
+models.Languages = Languges;
 
 /* Relations */
 /*********************USER Hasmany TASK *****************/
@@ -35,4 +37,4 @@ models.Trip.hasMany(models.Schedule,{foreignKey:'trip_id'});
 models.Schedule.belongsTo(models.Trip,{foreignKey:'trip_id'});
 
 
-module.exports = models
+module.exports = models;

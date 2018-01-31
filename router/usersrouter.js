@@ -13,4 +13,5 @@ module.exports = function(app){
     app.post('/signin',requireSignin,Authentication.signin);
     app.post('/signup',Authentication.signup);
     app.get('/api/getactivities',Application.getactivities);
+    app.get('/api/languages',Application.getlanguages);
 }

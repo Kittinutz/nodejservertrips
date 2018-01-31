@@ -11,3 +11,11 @@ exports.getactivities = function (req,res,next) {
             res.send(JSON.stringify(activities));
         })
 };
+
+exports.getlanguages = function (req,res,next) {
+    models.Languages.findAll({
+        attributes:['id','languages']
+    }).then(languages=>{
+        res.send(languages);
+})
+};
