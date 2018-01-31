@@ -16,6 +16,6 @@ exports.getlanguages = function (req,res,next) {
     models.Languages.findAll({
         attributes:['id','languages']
     }).then(languages=>{
-        res.send(languages);
+        res.send(JSON.stringify(languages));
 })
 };
