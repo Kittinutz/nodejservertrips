@@ -20,7 +20,7 @@ const db        = {};
 
 /****************SETUP BODY*************/
 app.use(morgan('combined'));
-app.use(bodyParser.json({type:'*/*'}));
+app.use(bodyParser.json());
 /***************************************/
 
 app.use(cors());
