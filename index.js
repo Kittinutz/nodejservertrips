@@ -4,8 +4,8 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
 /******** ROUTER********/
-const userrouter = require('./router/usersrouter');
-const guiderrouter = require('./router/guiderouter');
+const userrouter = require('./router/Userrouter');
+const guiderrouter = require('./router/Guiderouter');
 const task = require('./router/Taskrouter');
 const morgan = require('morgan');
 
@@ -20,11 +20,12 @@ const db        = {};
 
 /****************SETUP BODY*************/
 app.use(morgan('combined'));
-app.use(bodyParser.json());
-/***************************************/
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
+/***********git diff****************************/
+
 
 app.use(cors());
-
 userrouter(app);
 guiderrouter(app);
 task(app);
