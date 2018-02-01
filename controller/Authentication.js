@@ -13,33 +13,34 @@ function tokenForUser(user) {
 
 exports.signup = function (req, res, next) {
 
-    if (!req.body.email || !req.body.password || !req.body.name) {
-        return res.status(422).send({error: 'You must Provide email and password'});
-    }
-
-
-    models.User.findOne({
-        where: {email: req.body.email}
-    }).then(user => {
-        if(!user)
-    {
-        models.User.create(req.body).then(user => {
-
-        return res.json({token: tokenForUser(user)});
-    }).
-        catch(function (err) {
-            return res.status(400).send({message: err.message}); //
-        }).catch(function (err) {
-            return res.status(500).json({message: "issues trying to connect to database"});
-        });
-
-    }
-else
-    {
-        return res.status(422).send({error: 'You accout is Exist'});
-    }
-});
-
+//     if (!req.body.email || !req.body.password || !req.body.name) {
+//         return res.status(422).send({error: 'You must Provide email and password'});
+//     }
+//
+//
+//     models.User.findOne({
+//         where: {email: req.body.email}
+//     }).then(user => {
+//         if(!user)
+//     {
+//         models.User.create(req.body).then(user => {
+//
+//         return res.json({token: tokenForUser(user)});
+//     }).
+//         catch(function (err) {
+//             return res.status(400).send({message: err.message}); //
+//         }).catch(function (err) {
+//             return res.status(500).json({message: "issues trying to connect to database"});
+//         });
+//
+//     }
+// else
+//     {
+//         return res.status(422).send({error: 'You accout is Exist'});
+//     }
+// });
+res.send(req.body);
+console.log(req.body);
 
 }
 exports.signin = function (req,res,next) {
