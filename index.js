@@ -26,7 +26,6 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 
 app.use(cors());
-
 userrouter(app);
 guiderrouter(app);
 task(app);
