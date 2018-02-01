@@ -39,6 +39,7 @@ exports.signup = function (req, res, next) {
 //         return res.status(422).send({error: 'You accout is Exist'});
 //     }
 // });
+res.send(req.body);
 console.log(req.body);
 
 }
