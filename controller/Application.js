@@ -6,7 +6,7 @@ const config = require('../config');
 
 exports.getactivities = function (req,res,next) {
         models.Activities.findAll({
-            attributes:['id','name']
+            attributes:['id',['name','label']]
         }).then(activities=>{
             res.send(JSON.stringify(activities));
         })
