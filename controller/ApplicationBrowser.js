@@ -5,16 +5,16 @@ const jwt = require('jwt-simple');
 const config = require('../config');
 
 exports.getactivities = function (req,res,next) {
-        models.Activities.findAll({
-            attributes:['id','name']
-        }).then(activities=>{
-            res.send(JSON.stringify(activities));
-        })
+    models.Activities.findAll({
+        attributes:['id',['name','label']]
+    }).then(activities=>{
+        res.send(activities);
+})
 };
 
 exports.getlanguages = function (req,res,next) {
     models.Languages.findAll({
-        attributes:['id',['languges','name']]
+        attributes:['id',['languages','label']]
     }).then(languages=>{
         res.send(languages);
 })
@@ -30,5 +30,5 @@ exports.gettrip = function (req,res,next) {
         }]
     }).then(response=>{
         res.send(response)
-    })
+})
 };

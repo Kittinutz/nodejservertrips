@@ -7,6 +7,7 @@ const app = express();
 const userrouter = require('./router/Userrouter');
 const guiderrouter = require('./router/Guiderouter');
 const task = require('./router/Taskrouter');
+const api = require('./router/Application');
 const morgan = require('morgan');
 
 
@@ -29,6 +30,7 @@ app.use(cors());
 userrouter(app);
 guiderrouter(app);
 task(app);
+api(app);
 
  /****************SETUP Server*************/
 const port = process.env.PORT || 5011;
