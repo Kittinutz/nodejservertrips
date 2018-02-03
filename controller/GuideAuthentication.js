@@ -65,3 +65,7 @@ exports.GetMessage = function (req,res,next) {
         res.json(response);
     })
 }
+exports.createtrip = function (req,res,next) {
+     console.log(req.body);
+
+}

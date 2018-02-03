@@ -10,6 +10,6 @@ module.exports = function (app) {
     app.post('/guide/signup',GuideAuthentication.signup);
     app.get('/guide',requireAuth,GuideAuthentication.GetMessage);
     app.post('/guide/signin',requireSignin,GuideAuthentication.signin);
-    app.post('/guide/maketrip',requireAuth,TripController.createtrip);
+    app.post('/guide/createtrip',requireAuth,TripController.createtrip);
     app.post('/guide/ShowTrip',requireAuth,TripController.show);
 }
