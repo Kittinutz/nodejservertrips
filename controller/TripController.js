@@ -29,6 +29,7 @@ exports.createtrip = function(req,res,next){
    //     res.send(response);
    // });
     console.log(req.body);
+    res.send(req.body);
 }
 exports.show =function(req,res,next){
     var user = tokenDecode(req.headers.authorization);
