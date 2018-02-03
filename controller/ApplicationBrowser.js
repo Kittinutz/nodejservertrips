@@ -6,7 +6,7 @@ const config = require('../config');
 
 exports.getactivities = function (req,res,next) {
     models.Activities.findAll({
-        attributes:['id',['name','label']]
+        attributes:[['id','value'],['name','label']]
     }).then(activities=>{
         res.send(activities);
 })
@@ -14,7 +14,7 @@ exports.getactivities = function (req,res,next) {
 
 exports.getlanguages = function (req,res,next) {
     models.Languages.findAll({
-        attributes:['id',['languages','label']]
+        attributes:[['id','value'],['languages','label']]
     }).then(languages=>{
         res.send(languages);
 })
