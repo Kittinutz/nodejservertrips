@@ -17,7 +17,7 @@ module.exports = (sequelize , DataTypes) =>
         },
         time: {
             field: 'time',
-            type: DataTypes.STRING(191),
+            type: DataTypes.STRING,
         },
         description:{
             field:'description',

@@ -11,5 +11,5 @@ module.exports = function (app) {
     app.get('/guide',requireAuth,GuideAuthentication.GetMessage);
     app.post('/guide/signin',requireSignin,GuideAuthentication.signin);
     app.post('/guide/createtrip',requireAuth,TripController.createtrip);
-    app.post('/guide/ShowTrip',requireAuth,TripController.show);
+    app.post('/guide/showtrip',requireAuth,TripController.show);
 }

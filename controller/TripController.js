@@ -13,23 +13,23 @@ function tokenDecode(user){
     return jwt.decode(user,config.secret);
 }
 
-exports.createtrip = function(req,res,next){
+exports.createtrip = function(req,res,next) {
 
-   //  var user = tokenDecode(req.headers.authorization);
-   // models.Trip.create({
-   //     name: req.body.trip.name,
-   //     description: req.body.trip.description,
-   //     creater_id: user.sub,
-   //     location: req.body.trip.location,
-   //     price: req.body.trip.price,
-   //     schedules: req.body.schedules
-   // },{
-   //     include:[models.Schedule]
-   // }).then(response=>{
-   //     res.send(response);
-   // });
+
+     var user = tokenDecode(req.headers.authorization);
+    models.Trip.create({
+        name: req.body.name,
+        description: req.body.description,
+        creater_id: user.sub,
+        location: req.body.location.value,
+        price: req.body.price,
+        schedules: req.body.schedule
+    },{
+        include:[models.Schedule]
+    }).then(response=>{
+        res.send(response);
+    });
     console.log(req.body);
-    res.send(req.body);
 }
 exports.show =function(req,res,next){
     var user = tokenDecode(req.headers.authorization);
