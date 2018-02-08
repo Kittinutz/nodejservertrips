@@ -12,31 +12,17 @@ function tokenForUser(user) {
 }
 
 exports.signup = function (req, res, next) {
+    console.log(req.body);
+    models.User.findOne({eamil:req.body.email}).then(response=>{
+        if(response==null){
+            models.User.create(req.body).then(response=>{
+                return res.json({token: tokenForUser(response)});
+            });
+         }else{
+                return res.json({token: tokenForUser(response)});
+        }
+    });
 
-
-    models.User.findOne({
-        where: {email: req.body.email}
-    }).then(user => {
-        if(!user)
-    {
-        models.User.create(req.body).then(user => {
-
-        return res.json({token: tokenForUser(user)});
-    }).
-        catch(function (err) {
-            return res.status(400).send({message: err.message}); //
-        }).catch(function (err) {
-            return res.status(500).json({message: "issues trying to connect to database"});
-        });
-
-    }
-else
-    {
-        return res.status(422).send({error: 'You accout is Exist'});
-    }
-});
-res.send(req.body);
-console.log(req.body);
 
 }
 exports.signin = function (req,res,next) {

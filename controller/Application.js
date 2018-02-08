@@ -8,13 +8,13 @@ exports.getactivities = function (req,res,next) {
         models.Activities.findAll({
             attributes:['id','name']
         }).then(activities=>{
-            res.send(JSON.stringify(activities));
+            res.send(activities);
         })
 };
 
 exports.getlanguages = function (req,res,next) {
     models.Languages.findAll({
-        attributes:['id',['languges','name']]
+        attributes:['id',['languages','name']]
     }).then(languages=>{
         res.send(languages);
 })

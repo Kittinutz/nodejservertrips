@@ -25,7 +25,7 @@ module.exports = (sequelize , DataTypes) =>
             field: 'password',
             type: DataTypes.STRING(191),
             primaryKey: false,
-            allowNull: false,
+            allowNull: true,
             autoIncrement: false,
         },
       avatar: {
