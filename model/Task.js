@@ -17,6 +17,10 @@ module.exports = (sequelize , DataTypes) =>
             type: DataTypes.STRING,
             field: 'appointment'
         },
+        numberofperson:{
+            type: DataTypes.INTEGER(10),
+            field:'numberofperson'
+        },
         createdAt: {
             field: 'created_at',
             type: DataTypes.DATE,
