@@ -13,7 +13,7 @@ function tokenForUser(user) {
 
 exports.signup = function (req, res, next) {
     console.log(req.body.email);
-    models.User.findOne({where:{eamil:req.body.email}}).then(response=>{
+    models.User.findOne({where:{email:req.body.email}}).then(response=>{
         if(!response){
             models.User.create(req.body).then(response=>{
                 return res.json({token: tokenForUser(response)});
