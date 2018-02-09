@@ -5,14 +5,14 @@ const config = require('../config');
 const jwt = require('jwt-simple');
 
 
-
 function tokenForUser(user) {
     const timestamp = new Date().getTime();
     return jwt.encode({sub: user.id, iat: timestamp}, config.secret);
 
 }
-function tokenDecode(user){
-    return jwt.decode(user,config.secret);
+
+function tokenDecode(user) {
+    return jwt.decode(user, config.secret);
 }
 
 exports.CreateTask = function (req, res, next) {
@@ -28,7 +28,6 @@ exports.CreateTask = function (req, res, next) {
         user.setLanguages(req.body.languages);
         res.send(user);
     });
-
 
 
 }
@@ -50,18 +49,23 @@ exports.getTask = function (req, res, next) {
 
 }
 
-exports.getOwnTask = function (req,res,next) {
+exports.getOwnTask = function (req, res, next) {
     console.log(req.headers.authorization);
     var user = tokenDecode(req.headers.authorization);
-    models.Task.findAll({where:{user_id:user.sub},
-        include:[{
-            model:models.Languages,
-            attributes:['name']
-        },{
-            model:models.Activities,
-            attributes:['name']
-        }]
-    }).then(response=>{
+    models.Task.findAll(
+        {
+            where: {user_id: user.sub},
+            include: [{
+                model: models.Languages,
+                attributes: ['name']
+            }, {
+                model: models.Activities,
+                attributes: ['name']
+            }],
+            order:[
+                ['id','DESC']
+            ]
+        }).then(response => {
         res.send(response);
     })
 }
