@@ -11,6 +11,7 @@ const Schedule = require('../model/Schedule')(config.sequelize,config.Sequelize)
 const Languges = require('../model/Languges')(config.sequelize,config.Sequelize);
 const Places = require('../model/Places')(config.sequelize,config.Sequelize);
 const Places_Activities = require('../model/Place_Activities')(config.sequelize,config.Sequelize);
+const Task_Languages = require('../model/Task_Languages')(config.sequelize,config.Sequelize);
 /* DEFIND MODEL */
 models.User = User;
 models.Guide = Guide;
@@ -22,6 +23,7 @@ models.Schedule = Schedule;
 models.Languages = Languges;
 models.Places = Places;
 models.Places_Activities = Places_Activities;
+models.Task_Languages = Task_Languages;
 
 /* Relations */
 /*********************USER Hasmany TASK *****************/
@@ -37,5 +39,7 @@ models.Trip.hasMany(models.Schedule,{foreignKey:'trip_id'});
 models.Schedule.belongsTo(models.Trip,{foreignKey:'trip_id'});
 models.Activities.belongsToMany(models.Places,{through:'places_activities',foreignKey:'activities_id'});
 models.Places.belongsToMany(models.Activities,{through:'places_activities',foreignKey:'place_id'});
+models.Task.belongsToMany(models.Task_Languages,{through:'task_language',foreignKey:'task_id'});
+models.Languages.belongsToMany(models.Task,{through:'task_language',foreignKey:'language_id'});
 
 module.exports = models;

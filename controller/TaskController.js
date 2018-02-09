@@ -8,12 +8,12 @@ exports.CreateTask = function (req,res,next) {
     models.Task.create({
 
         user_id: '1',
-        appointment:'2018-08-08',
-
+        appointment:req.body.date,
+        numberofperson:req.body.numberofPerson
     }).then(user=>{
-        user.setActivities([1,2]).then(value=>{
-            console.log(value);
-    });
+        user.setActivities(req.body.activities);
+        user.setLanguages(req.body.languages);
+  
     });
 
 }
