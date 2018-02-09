@@ -32,6 +32,7 @@ exports.CreateTask = function (req, res, next) {
 
 
 }
+
 exports.getTask = function (req, res, next) {
 
     models.Task.findAll({
@@ -47,4 +48,20 @@ exports.getTask = function (req, res, next) {
         res.send(response);
     })
 
+}
+
+exports.getOwnTask = function (req,res,next) {
+    console.log(req.headers.authorization);
+    var user = tokenDecode(req.headers.authorization);
+    models.Task.findAll({where:{user_id:user.sub},
+        include:[{
+            model:models.Languages,
+            attributes:['name']
+        },{
+            model:models.Activities,
+            attributes:['name']
+        }]
+    }).then(response=>{
+        res.send(response);
+    })
 }

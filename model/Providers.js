@@ -31,8 +31,8 @@ models.User.hasMany(models.Task,{foreignKey: 'user_id'});
 models.Task.belongsTo(models.User,{foreignKey: 'user_id'});
 
 /*********************Many To Many*****************/
-models.Task.belongsToMany(models.Activities, { as: 'activities', through: 'tasks_activities', foreignKey: 'task_id', otherKey: 'activitie_id' });
-models.Activities.belongsToMany(models.Task, { as: 'task', through: 'tasks_activities', foreignKey: 'activitie_id', otherKey: 'task_id' });
+models.Task.belongsToMany(models.Activities, { through:models.Task_Activities, foreignKey: 'task_id', otherKey: 'activitie_id' });
+models.Activities.belongsToMany(models.Task, {  through:models.Task_Activities, foreignKey: 'activitie_id', otherKey: 'task_id' });
 models.Guide.hasMany(models.Trip,{foreignKey:'id'});
 models.Trip.belongsTo(models.Guide,{foreignKey:'creater_id'});
 models.Trip.hasMany(models.Schedule,{foreignKey:'trip_id'});
