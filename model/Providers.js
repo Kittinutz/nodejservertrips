@@ -9,6 +9,8 @@ const Task_Activities = require('../model/Task_Activities')(config.sequelize, co
 const Trip =  require('../model/Trip')(config.sequelize, config.Sequelize);
 const Schedule = require('../model/Schedule')(config.sequelize,config.Sequelize);
 const Languges = require('../model/Languges')(config.sequelize,config.Sequelize);
+const Places = require('../model/Places')(config.sequelize,config.Sequelize);
+const Places_Activities = require('../model/Place_Activities')(config.sequelize,config.Sequelize);
 /* DEFIND MODEL */
 models.User = User;
 models.Guide = Guide;
@@ -18,6 +20,8 @@ models.Task_Activities = Task_Activities;
 models.Trip = Trip;
 models.Schedule = Schedule;
 models.Languages = Languges;
+models.Places = Places;
+models.Places_Activities = Places_Activities;
 
 /* Relations */
 /*********************USER Hasmany TASK *****************/
@@ -25,16 +29,13 @@ models.User.hasMany(models.Task,{foreignKey: 'user_id'});
 models.Task.belongsTo(models.User,{foreignKey: 'user_id'});
 
 /*********************Many To Many*****************/
-// models.Activities.hasMany(models.Task_Activities,{foreignKey: 'activitie_id'});
-// models.Task.hasMany(models.Task_Activities,{foreignKey:'task_id'});
-// models.Task_Activities.belongsTo(models.Task,{foreignKey: 'task_id'});
-// models.Task_Activities.belongsTo(models.Activities,{foreignKey:'activitie_id'});
 models.Task.belongsToMany(models.Activities, { as: 'activities', through: 'tasks_activities', foreignKey: 'task_id', otherKey: 'activitie_id' });
 models.Activities.belongsToMany(models.Task, { as: 'task', through: 'tasks_activities', foreignKey: 'activitie_id', otherKey: 'task_id' });
 models.Guide.hasMany(models.Trip,{foreignKey:'id'});
 models.Trip.belongsTo(models.Guide,{foreignKey:'creater_id'});
 models.Trip.hasMany(models.Schedule,{foreignKey:'trip_id'});
 models.Schedule.belongsTo(models.Trip,{foreignKey:'trip_id'});
-
+models.Activities.belongsToMany(models.Places,{through:'places_activities',foreignKey:'activities_id'});
+models.Places.belongsToMany(models.Activities,{through:'places_activities',foreignKey:'place_id'});
 
 module.exports = models;

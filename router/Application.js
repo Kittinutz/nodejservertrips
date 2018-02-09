@@ -9,8 +9,11 @@ module.exports = function(app){
     app.get('/api/getactivities',Application.getactivities);
     app.get('/api/languages',Application.getlanguages);
     app.get('/api/trip',Application.gettrip);
+    app.get('/api/trip/:id',Application.getripbbyid);
+    app.post('/testapitask',Application.postapplication);
 
     /****BROWSER***/
-    app.get('/api/browser/activities',ApplicationBroser.getactivities)
-    app.get('/api/browser/languages',ApplicationBroser.getlanguages)
+    app.get('/api/browser/activities',ApplicationBroser.getactivities);
+    app.get('/api/browser/languages',ApplicationBroser.getlanguages);
+    app.get('/api/placebyactivities',ApplicationBroser.getPlacebyactivities);
 }

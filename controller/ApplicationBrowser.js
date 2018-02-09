@@ -32,3 +32,14 @@ exports.gettrip = function (req,res,next) {
         res.send(response)
 })
 };
+exports.getPlacebyactivities = function (req,res,next) {
+    models.Activities.findAll({
+        include:[{
+            model:models.Places
+
+        }]
+    }).then(response=>{
+        res.send(response);
+    })
+
+}
