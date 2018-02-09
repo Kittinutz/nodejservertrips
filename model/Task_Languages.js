@@ -2,7 +2,7 @@ const bcrypt = require("bcrypt-nodejs");
 const models = require('./Providers');
 module.exports = (sequelize , DataTypes) =>
 {
-    var Task_Act = sequelize.define("tasks_activities", {
+    var Task_Languages = sequelize.define("task_languages", {
         id: {
             type: DataTypes.INTEGER(10).UNSIGNED,
             autoIncrement: true,
@@ -43,5 +43,5 @@ module.exports = (sequelize , DataTypes) =>
 
 
 
-    return Task_Act;
+    return Task_Languages;
 }

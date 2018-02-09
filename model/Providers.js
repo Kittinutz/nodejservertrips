@@ -39,7 +39,7 @@ models.Trip.hasMany(models.Schedule,{foreignKey:'trip_id'});
 models.Schedule.belongsTo(models.Trip,{foreignKey:'trip_id'});
 models.Activities.belongsToMany(models.Places,{through:'places_activities',foreignKey:'activities_id'});
 models.Places.belongsToMany(models.Activities,{through:'places_activities',foreignKey:'place_id'});
-models.Task.belongsToMany(models.Languages,{through:'task_language',foreignKey:'task_id'});
-models.Languages.belongsToMany(models.Task,{through:'task_language',foreignKey:'language_id'});
+models.Task.belongsToMany(models.Languages,{through:models.Task_Languages,foreignKey:'task_id'});
+models.Languages.belongsToMany(models.Task,{through:models.Task_Languages,foreignKey:'language_id'});
 
 module.exports = models;
