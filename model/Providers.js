@@ -12,6 +12,7 @@ const Languges = require('../model/Languges')(config.sequelize,config.Sequelize)
 const Places = require('../model/Places')(config.sequelize,config.Sequelize);
 const Places_Activities = require('../model/Place_Activities')(config.sequelize,config.Sequelize);
 const Task_Languages = require('../model/Task_Languages')(config.sequelize,config.Sequelize);
+const Languages_guide = require('../model/Languages_guides')(config.sequelize,config.Sequelize);
 /* DEFIND MODEL */
 models.User = User;
 models.Guide = Guide;
@@ -24,6 +25,7 @@ models.Languages = Languges;
 models.Places = Places;
 models.Places_Activities = Places_Activities;
 models.Task_Languages = Task_Languages;
+models.Languages_guide = Languages_guide;
 
 /* Relations */
 /*********************USER Hasmany TASK *****************/
@@ -41,5 +43,7 @@ models.Activities.belongsToMany(models.Places,{through:'places_activities',forei
 models.Places.belongsToMany(models.Activities,{through:'places_activities',foreignKey:'place_id'});
 models.Task.belongsToMany(models.Languages,{through:models.Task_Languages,foreignKey:'task_id'});
 models.Languages.belongsToMany(models.Task,{through:models.Task_Languages,foreignKey:'language_id'});
+models.Languages.belongsToMany(models.Guide,{through:models.Languages_guide,foreignKey:'languages_id'});
+models.Guide.belongsToMany(models.Languages,{through:models.Languages_guide,foreignKey:'guide_id'});
 
 module.exports = models;
