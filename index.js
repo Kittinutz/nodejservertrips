@@ -3,6 +3,7 @@ const http = require('http');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
+const io = require('socket.io')();
 /******** ROUTER********/
 const userrouter = require('./router/Userrouter');
 const guiderrouter = require('./router/Guiderouter');
@@ -31,10 +32,21 @@ userrouter(app);
 guiderrouter(app);
 task(app);
 api(app);
-
+io.on('connection', (client) => {
+    // here you can start emitting events to the client
+    client.on('subscribeToTimer', (interval) => {
+        console.log('client is subscribing to timer with interval ', interval);
+        setInterval(() => {
+            client.emit('timer', new Date());
+        }, interval);
+    });
+});
  /****************SETUP Server*************/
 const port = process.env.PORT || 5011;
 const server = http.createServer(app);
 server.listen(port);
 console.log('Server listen on: ',port);
 /***************************************/
+const socketpost = 5012;
+io.listen(socketpost);
+console.log('io listening on port ', socketpost);

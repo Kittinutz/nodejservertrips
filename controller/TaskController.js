@@ -71,6 +71,7 @@ exports.getOwnTask = function (req, res, next) {
 };
 exports.Notification = (req, res, next) => {
     var guide = tokenDecode(req.headers.authorization);
+    console.log(req.headers.authorization);
     models.Task.findAll({
         include: [
             {
@@ -81,6 +82,5 @@ exports.Notification = (req, res, next) => {
         ]
     }).then(response => {
         res.send(response);
-    })
-
+    });
 };
