@@ -8,7 +8,7 @@ const LocalStrategy = require('passport-local');
 //create local strategy
 const localOptions = { usernameField:'email'};
 
-const localloin = new LocalStrategy(localOptions,function (email,password,done) {
+const locallogin = new LocalStrategy(localOptions,function (email,password,done) {
     //verify this username
     //if it correct
     console.log(email);
@@ -54,4 +54,5 @@ const jwtLogin = new JwtStrategy(jwtOptions,function (payload,done) {
 
 /* Passport Strategy */
 passport.use(jwtLogin);
-passport.use(localloin);
+passport.use(locallogin);
+
