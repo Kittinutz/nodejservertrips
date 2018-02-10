@@ -1,5 +1,6 @@
 const GuideAuthentication = require('../controller/GuideAuthentication');
-const TripController = require('../controller/TripController')
+const TripController = require('../controller/TripController');
+const TaskController = require('../controller/TaskController');
 const jwt = require('jwt-simple');
 
 const passportService = require('../service/Passport');
@@ -12,4 +13,5 @@ module.exports = function (app) {
     app.post('/guide/signin',requireSignin,GuideAuthentication.signin);
     app.post('/guide/createtrip',requireAuth,TripController.createtrip);
     app.post('/guide/showtrip',requireAuth,TripController.show);
+    app.post('/guide/notification/task',requireAuth,TaskController.Notification);
 }

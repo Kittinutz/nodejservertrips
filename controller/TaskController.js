@@ -30,7 +30,7 @@ exports.CreateTask = function (req, res, next) {
     });
 
 
-}
+};
 
 exports.getTask = function (req, res, next) {
 
@@ -47,7 +47,7 @@ exports.getTask = function (req, res, next) {
         res.send(response);
     })
 
-}
+};
 
 exports.getOwnTask = function (req, res, next) {
     console.log(req.headers.authorization);
@@ -62,10 +62,25 @@ exports.getOwnTask = function (req, res, next) {
                 model: models.Activities,
                 attributes: ['name']
             }],
-            order:[
-                ['id','DESC']
+            order: [
+                ['id', 'DESC']
             ]
         }).then(response => {
         res.send(response);
     })
-}
+};
+exports.Notification = (req, res, next) => {
+    var guide = tokenDecode(req.headers.authorization);
+    models.Task.findAll({
+        include: [
+            {
+                model:models.Languages,
+                required: true,
+                include: [{model:models.Guide ,where:{id:guide.sub},attributes:[]}]
+            }
+        ]
+    }).then(response => {
+        res.send(response);
+    })
+
+};
