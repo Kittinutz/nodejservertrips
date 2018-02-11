@@ -29,18 +29,18 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(cors());
 userrouter(app);
-guiderrouter(app);
+guiderrouter(app,io);
 task(app);
 api(app);
-io.on('connection', (client) => {
-    // here you can start emitting events to the client
-    client.on('subscribeToTimer', (interval) => {
-        console.log('client is subscribing to timer with interval ', interval);
-        setInterval(() => {
-            client.emit('timer', new Date());
-        }, interval);
-    });
-});
+// io.on('connection', (client) => {
+//     // here you can start emitting events to the client
+//     client.on('subscribeToTimer', (interval) => {
+//         console.log('client is subscribing to timer with interval ', interval);
+//         setInterval(() => {
+//             client.emit('timer', new Date());
+//         }, interval);
+//     });
+// });
  /****************SETUP Server*************/
 const port = process.env.PORT || 5011;
 const server = http.createServer(app);

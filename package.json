@@ -15,6 +15,7 @@
     "express": "^4.16.2",
     "fs": "0.0.1-security",
     "jwt-simple": "^0.5.1",
+    "moment": "^2.20.1",
     "morgan": "^1.9.0",
     "mysql2": "^1.5.1",
     "nodemon": "^1.14.11",
