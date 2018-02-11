@@ -16,4 +16,7 @@ module.exports = function(app){
     app.get('/api/browser/activities',ApplicationBroser.getactivities);
     app.get('/api/browser/languages',ApplicationBroser.getlanguages);
     app.get('/api/placebyactivities',ApplicationBroser.getPlacebyactivities);
+
+
+
 }

@@ -35,11 +35,12 @@ exports.gettrip = function (req,res,next) {
 exports.getPlacebyactivities = function (req,res,next) {
     models.Activities.findAll({
         include:[{
-            model:models.Places
+            model:models.Places,
+            attributes:[['id','value'],['name_place','label']]
 
         }]
     }).then(response=>{
         res.send(response);
     })
 
-}
+};

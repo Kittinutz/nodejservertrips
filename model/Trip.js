@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt-nodejs");
-
+const moment = require('moment');
 module.exports = (sequelize , DataTypes) =>
 {
     var Trip = sequelize.define("trips", {
@@ -39,12 +39,18 @@ module.exports = (sequelize , DataTypes) =>
             type: DataTypes.DATE,
             primaryKey: false,
             autoIncrement: false,
+            get: function() {
+                return moment.utc(this.getDataValue('created_at')).format('YYYY-MM-DD');
+            }
         },
         updatedAt: {
             field: 'updated_at',
             type: DataTypes.DATE,
             primaryKey: false,
             autoIncrement: false,
+            get: function() {
+                return moment.utc(this.getDataValue('updated_at')).format('YYYY-MM-DD');
+            }
         }
     });
     return Trip;

@@ -26,7 +26,8 @@ exports.gettrip = function (req,res,next) {
 };
 exports.postapplication = function (req,res,next) {
     console.log(req.body);
-}
+};
+
 exports.getripbbyid = function (req,res,next) {
     var id = req.params.id;
     models.Trip.findOne({

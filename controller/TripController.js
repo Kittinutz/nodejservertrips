@@ -15,21 +15,21 @@ function tokenDecode(user){
 
 exports.createtrip = function(req,res,next) {
 
-
      var user = tokenDecode(req.headers.authorization);
     models.Trip.create({
         name: req.body.name,
         description: req.body.description,
         creater_id: user.sub,
-        location: req.body.location.value,
+        location: req.body.first.DestinationSelect.value,
         price: req.body.price,
         schedules: req.body.schedule
     },{
         include:[models.Schedule]
     }).then(response=>{
-        res.send(response);
+       response.setPlaces(req.body.first.placeselect);
+       res.send(response);
     });
-    console.log(req.body);
+
 }
 exports.show =function(req,res,next){
     var user = tokenDecode(req.headers.authorization);
