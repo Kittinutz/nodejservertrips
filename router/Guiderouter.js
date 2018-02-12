@@ -13,5 +13,6 @@ module.exports = function (app) {
     app.post('/guide/signin',requireSignin,GuideAuthentication.signin);
     app.post('/guide/createtrip',requireAuth,TripController.createtrip);
     app.post('/guide/showtrip',requireAuth,TripController.show);
+    app.get('/guide/showtrip/:id',requireAuth,TripController.showById);
     app.get('/guide/notification/task',requireAuth,TaskController.Notification);
 }
