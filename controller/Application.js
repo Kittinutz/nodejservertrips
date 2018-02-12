@@ -43,3 +43,15 @@ exports.getripbbyid = function (req,res,next) {
         res.send(response)
     })
 };
+exports.getguide = function (req,res,next) {
+    models.Guide.findAll({
+        attributes:['name','surname','code_guide','gender','DOB'],
+        include:[{
+            model:models.Languages,
+        }]
+    }).then(response=>{
+        res.send(response)
+    });
+
+
+};

@@ -11,6 +11,7 @@ module.exports = function(app){
     app.get('/api/trip',Application.gettrip);
     app.get('/api/trip/:id',Application.getripbbyid);
     app.post('/testapitask',Application.postapplication);
+    app.get('/api/guide',Application.getguide);
 
     /****BROWSER***/
     app.get('/api/browser/activities',ApplicationBroser.getactivities);
