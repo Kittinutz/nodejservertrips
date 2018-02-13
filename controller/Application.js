@@ -48,7 +48,8 @@ exports.getguide = function (req,res,next) {
         attributes:['name','surname','code_guide','gender','DOB'],
         include:[{
             model:models.Languages,
-        }]
+        }],
+        limit:10
     }).then(response=>{
         res.send(response)
     });
