@@ -66,3 +66,13 @@ exports.GetMessage = function (req,res,next) {
     })
 }
 
+exports.getOwnLanguages =function  (req,res,next){
+    var user = tokenDecode(req.headers.authorization);
+     models.Languages.findAll({include:[{
+         model:models.Guide,
+             where:{id:user.sub},
+             attributes:[]
+         }]}).then(response=>{
+             res.send(response)
+     })
+}

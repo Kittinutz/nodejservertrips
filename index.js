@@ -39,6 +39,20 @@ guiderrouter(app,io);
 task(app);
 api(app);
 
+    io.on('connection',(client)=>{
+        client.emit('news', { hello: 'world' });
+        client.on('my other event', function (data) {
+            console.log(data)
+            if(data.my=='data'){
+                client.emit('news',{hell:'yeah'});
+            }
+            if(data.my==''){
+                client.emit('news',{hell:'ohyeah'});
+            }
+        });
+    });
+
+
  /****************SETUP Server*************/
 const port = process.env.PORT || 5011;
 const server = http.createServer(app);

@@ -63,6 +63,8 @@ exports.showById = function (req, res, next) {
                 model: models.Places
             }, {
                 model: models.Schedule
+            },{
+                model:models.Activities
             }]
         }
     ).then(response=>{
