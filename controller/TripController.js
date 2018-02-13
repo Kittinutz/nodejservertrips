@@ -1,7 +1,7 @@
 const models = require('../model/Providers');
 const config = require('../config');
 const jwt = require('jwt-simple');
-
+const Se = require('../config/sequelize');
 
 function tokenForUser(user) {
     const timestamp = new Date().getTime();
@@ -60,11 +60,20 @@ exports.showById = function (req, res, next) {
                     id: id
                 },
             include: [{
-                model: models.Places
+                model: models.Places,
+                through:{
+                    attributes:[]
+                },
+                include:[{
+                    model:models.Activities,
+                    where: {id: Se.Sequelize.col('Places.id')},
+                    as: 'activities',
+                    through:{
+                        attributes:[]
+                    }
+                }]
             }, {
                 model: models.Schedule
-            },{
-                model:models.Activities
             }]
         }
     ).then(response=>{
