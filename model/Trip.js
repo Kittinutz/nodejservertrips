@@ -34,6 +34,10 @@ module.exports = (sequelize , DataTypes) =>
           field:'price',
           type: DataTypes.INTEGER,
         },
+        image:{
+            field:'image',
+            type:DataTypes.STRING(191)
+        },
         createdAt: {
             field: 'created_at',
             type: DataTypes.DATE,
