@@ -66,7 +66,7 @@ exports.showById = function (req, res, next) {
                 },
                 include:[{
                     model:models.Activities,
-                    where: {id: Se.Sequelize.col('Places.id')},
+                    where: {id: Se.Sequelize.col('places.id')},
                     as: 'activities',
                     through:{
                         attributes:[]
