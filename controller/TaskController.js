@@ -20,8 +20,9 @@ function tokenDecode(user) {
 function getnewt(value){
 
     socket.io.on('connection',(client)=>{
-        client.emit('news', value);
+        client.emit('news', { hello: 'world' });
         client.on('my other event', function (data) {
+            console.log(data)
             if(data.my=='data'){
                 client.emit('news',{hell:'yeah'});
             }
@@ -33,7 +34,8 @@ function getnewt(value){
 }
 exports.CreateTask = function (req, res, next) {
     var user = tokenDecode(req.headers.authorization);
-    getnewt(req.body.languages);
+
+    socket.io.emit('news',{task:'have new task',languages:req.body.languages});
     models.Task.create({
 
         user_id: user.sub,

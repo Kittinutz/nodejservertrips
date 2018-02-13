@@ -15,4 +15,5 @@ module.exports = function (app) {
     app.post('/guide/showtrip',requireAuth,TripController.show);
     app.get('/guide/showtrip/:id',requireAuth,TripController.showById);
     app.get('/guide/notification/task',requireAuth,TaskController.Notification);
+    app.get('/guide/languages',requireAuth,GuideAuthentication.getOwnLanguages);
 }
