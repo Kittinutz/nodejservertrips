@@ -43,7 +43,7 @@ exports.getripbbyid = function (req, res, next) {
 };
 exports.getguide = function (req, res, next) {
     models.Guide.findAll({
-        attributes: ['id','name', 'surname', 'code_guide', 'gender', 'DOB'],
+        attributes: ['id','name', 'surname', 'code_guide', 'gender', 'DOB','image'],
         include: [{
             model: models.Languages,
         }],

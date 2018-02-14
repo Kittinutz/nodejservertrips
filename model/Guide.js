@@ -25,6 +25,10 @@ module.exports = (sequelize , DataTypes) =>
             autoIncrement: false,
             unique: 'compositeIndex'
         },
+        image:{
+            field:'image',
+            type: DataTypes.STRING(255)
+        },
         password: {
             field: 'password',
             type: DataTypes.STRING(191),
