@@ -54,6 +54,13 @@ exports.getguide = function (req, res, next) {
 
 
 };
+exports.getguideByid = function (req,res,next) {
+        var id = req.params.id
+    models.Guide.findById(id).then(response=>{
+        res.send(response);
+    })
+
+}
 // exports.socket = () =>{
 //     socket.io.on////
 // }
