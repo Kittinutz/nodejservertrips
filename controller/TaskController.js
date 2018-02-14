@@ -81,10 +81,15 @@ exports.Notification = (req, res, next) => {
                 model: models.User
             },
             {
+                model:models.Activities,
+                attributes:['id','name'],
+                through: {attributes: []},
+            },
+            {
                 model: models.Languages,
                 where: {id: Se.Sequelize.col('tasks.id')},
                 attributes:[['id','value'],['languages','label']],
-                through: {attributes: []},
+
                 include: [{
                     model: models.Guide,
                     through: {attributes: []},
