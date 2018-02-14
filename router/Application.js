@@ -13,7 +13,6 @@ module.exports = function(app){
     app.post('/testapitask',Application.postapplication);
     app.get('/api/guide',Application.getguide);
     app.get('/api/guide/:id',Application.getguideByid)
-
     /****BROWSER***/
     app.get('/api/browser/activities',ApplicationBroser.getactivities);
     app.get('/api/browser/languages',ApplicationBroser.getlanguages);
