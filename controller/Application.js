@@ -61,6 +61,4 @@ exports.getguideByid = function (req,res,next) {
     })
 
 }
-// exports.socket = () =>{
-//     socket.io.on////
-// }
+
