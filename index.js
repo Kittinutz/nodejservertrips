@@ -17,7 +17,7 @@ const basename  = path.basename(module.filename);
 const env       = process.env.NODE_ENV || 'development';
 const config    = require(__dirname + '/config.json')[env];
 const db        = {};
-
+const socketchat = require('./controller/Socketcontroller');
 // // socktcontroll.socket();
 // const socket = {};
 // socket.io = io;
@@ -39,18 +39,21 @@ guiderrouter(app,io);
 task(app);
 api(app);
 
-    io.on('connection',(client)=>{
-        client.emit('news', { hello: 'world' });
-        client.on('my other event', function (data) {
-            console.log(data)
-            if(data.my=='data'){
-                client.emit('news',{hell:'yeah'});
-            }
-            if(data.my==''){
-                client.emit('news',{hell:'ohyeah'});
-            }
-        });
-    });
+    socketchat.socket(io);
+
+
+    // io.on('connection',(client)=>{
+    //     client.emit('news', { hello: 'world' });
+    //     client.on('my other event', function (data) {
+    //         console.log(data)
+    //         if(data.my=='data'){
+    //             client.emit('news',{hell:'yeah'});
+    //         }
+    //         if(data.my==''){
+    //             client.emit('news',{hell:'ohyeah'});
+    //         }
+    //     });
+    // });
 
 
  /****************SETUP Server*************/

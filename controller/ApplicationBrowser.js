@@ -1,5 +1,3 @@
-
-
 const models = require('../model/Providers');
 const jwt = require('jwt-simple');
 const config = require('../config');
