@@ -6,8 +6,6 @@ const jwt = require('jwt-simple');
 const config = require('../config');
 
 
-
-
 function tokenForUser(user) {
     const timestamp = new Date().getTime();
     return jwt.encode({sub: user.id, iat: timestamp}, config.secret);
@@ -17,25 +15,27 @@ function tokenForUser(user) {
 function tokenDecode(user) {
     return jwt.decode(user, config.secret);
 }
-function getnewt(value){
 
-    socket.io.on('connection',(client)=>{
-        client.emit('news', { hello: 'world' });
+function getnewt(value) {
+
+    socket.io.on('connection', (client) => {
+        client.emit('news', {hello: 'world'});
         client.on('my other event', function (data) {
             console.log(data)
-            if(data.my=='data'){
-                client.emit('news',{hell:'yeah'});
+            if (data.my == 'data') {
+                client.emit('news', {hell: 'yeah'});
             }
-            if(data.my==''){
-                client.emit('news',{hell:'ohyeah'});
+            if (data.my == '') {
+                client.emit('news', {hell: 'ohyeah'});
             }
         });
     });
 }
+
 exports.CreateTask = function (req, res, next) {
     var user = tokenDecode(req.headers.authorization);
 
-    socket.io.emit('news',{task:'have new task',languages:req.body.languages});
+    socket.io.emit('news', {task: 'have new task', languages: req.body.languages});
     models.Task.create({
 
         user_id: user.sub,
@@ -81,20 +81,20 @@ exports.Notification = (req, res, next) => {
                 model: models.User
             },
             {
-                model:models.Activities,
-                attributes:['id','name'],
+                model: models.Activities,
+                attributes: ['id', 'name'],
                 through: {attributes: []},
             },
             {
                 model: models.Languages,
                 where: {id: Se.Sequelize.col('tasks.id')},
-                attributes:[['id','value'],['languages','label']],
+                attributes: [['id', 'value'], ['languages', 'label']],
 
                 include: [{
                     model: models.Guide,
                     through: {attributes: []},
                     where: {id: user.sub},
-                    attributes:[]
+                    attributes: []
                 }]
             }
         ]
@@ -103,3 +103,28 @@ exports.Notification = (req, res, next) => {
     });
 };
 
+exports.getDetailTask = (req, res, next) => {
+    models.Task.find(
+        {
+            where: {id: req.params.id},
+            include: [
+                {
+                    model: models.Activities,
+                    through: {attributes: []},
+                    include: [{
+                        model: models.Places,
+                        through: {attributes: []}
+                    }]
+                },
+                {
+                    model:models.Places,
+                    include:[{
+                        model:models.Activities,
+                    }]
+                }
+            ]
+        }
+    ).then(response => {
+        res.send(response);
+    })
+};

@@ -17,6 +17,14 @@ exports.getlanguages = function (req, res, next) {
         res.send(languages);
     })
 };
+exports.getPlaces = function (req,res,next) {
+    models.Places.findAll({
+        attributes:['id',['name_place','name']]
+    }).then(places =>{
+        res.send(places);
+    })
+
+};
 exports.gettrip = function (req, res, next) {
     models.Trip.findAll().then(response => {
         res.send(response)
@@ -60,4 +68,4 @@ exports.getguideByid = function (req,res,next) {
         res.send(response);
     })
 
-}
+};
