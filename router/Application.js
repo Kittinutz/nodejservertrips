@@ -8,7 +8,7 @@ module.exports = function(app){
 /**** MOBILE **/
     app.get('/api/getactivities',Application.getactivities);
     app.get('/api/languages',Application.getlanguages);
-    app.get('/api/plces',Application.getPlaces);
+    app.get('/api/places',Application.getPlaces);
     app.get('/api/trip',Application.gettrip);
     app.get('/api/trip/:id',Application.getripbbyid);
     app.post('/testapitask',Application.postapplication);
