@@ -9,6 +9,7 @@ const userrouter = require('./router/Userrouter');
 const guiderrouter = require('./router/Guiderouter');
 const task = require('./router/Taskrouter');
 const api = require('./router/Application');
+const triprouter = require('./router/Triprouter');
 const morgan = require('morgan');
 const socktcontroll = require('./controller/Application');
 const fs        = require('fs');
@@ -18,12 +19,13 @@ const env       = process.env.NODE_ENV || 'development';
 const config    = require(__dirname + '/config.json')[env];
 const db        = {};
 const socketchat = require('./controller/Socketcontroller');
+
 // // socktcontroll.socket();
 // const socket = {};
 // socket.io = io;
 //
 // exports.io = io;
-const Task = require('./controller/TaskController')
+const Task = require('./controller/TaskController');
 
 
 /****************SETUP BODY*************/
@@ -38,6 +40,7 @@ userrouter(app);
 guiderrouter(app,io);
 task(app);
 api(app);
+triprouter(app);
 
     socketchat.socket(io);
 
