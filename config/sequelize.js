@@ -14,8 +14,8 @@ const sequelize = new Sequelize('travel', 'travel', 'knightza123', {
     operatorsAliases: false
 });
 
-const type = {}
-type.Sequelize = Sequelize
-type.sequelize = sequelize
+const type = {};
+type.Sequelize = Sequelize;
+type.sequelize = sequelize;
 
-module.exports = type
+module.exports = type;
