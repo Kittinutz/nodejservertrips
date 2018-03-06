@@ -11,6 +11,10 @@ function tokenForUser(user) {
 
 }
 
+function tokenDecode(user){
+    return jwt.decode(user,config.secret);
+}
+
 exports.signup = function (req, res, next) {
     console.log(req.body.email);
     models.User.findOne({where:{email:req.body.email}}).then(response=>{
@@ -31,3 +35,12 @@ exports.signin = function (req,res,next) {
     res.send({token: tokenForUser(req.user)});
 }
 
+exports.message = function (req,res,next) {
+    let token = req.headers.authorization;
+    console.log(token);
+    let id = tokenDecode(token);
+    models.User.findById(id.sub).then(response=>{
+        res.send(response);
+    })
+
+}
