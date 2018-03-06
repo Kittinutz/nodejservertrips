@@ -3,6 +3,7 @@ const config = require('../config');
 const jwt = require('jwt-simple');
 const Se = require('../config/sequelize');
 const Op = Se.Sequelize.Op;
+
 function tokenForUser(user) {
     const timestamp = new Date().getTime();
     return jwt.encode({sub: user.id, iat: timestamp}, config.secret);
@@ -81,16 +82,16 @@ exports.showById = function (req, res, next) {
     })
 }
 exports.getripbyuser = function (req, res, next) {
-    let places=req.body.places;
+    let places = req.body.places;
     console.log(places);
     models.Trip.findAll({
         include: [
             {
-            model:models.Places,
-               where:{
-                [Op.or]:{id:req.body.places}
-               },
-                attributes:[],
+                model: models.Places,
+                where: {
+                    [Op.or]: {id: req.body.places}
+                },
+                attributes: [],
             }
         ]
     }).then(response => {

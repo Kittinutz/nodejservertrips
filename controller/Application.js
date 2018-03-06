@@ -17,10 +17,10 @@ exports.getlanguages = function (req, res, next) {
         res.send(languages);
     })
 };
-exports.getPlaces = function (req,res,next) {
+exports.getPlaces = function (req, res, next) {
     models.Places.findAll({
-        attributes:['id',['name_place','name']]
-    }).then(places =>{
+        attributes: ['id', ['name_place', 'name']]
+    }).then(places => {
         res.send(places);
     })
 
@@ -51,7 +51,7 @@ exports.getripbbyid = function (req, res, next) {
 };
 exports.getguide = function (req, res, next) {
     models.Guide.findAll({
-        attributes: ['id','name', 'surname', 'code_guide', 'gender', 'DOB','image'],
+        attributes: ['id', 'name', 'surname', 'code_guide', 'gender', 'DOB', 'image'],
         include: [{
             model: models.Languages,
         }],
@@ -62,9 +62,9 @@ exports.getguide = function (req, res, next) {
 
 
 };
-exports.getguideByid = function (req,res,next) {
-        var id = req.params.id
-    models.Guide.findById(id).then(response=>{
+exports.getguideByid = function (req, res, next) {
+    var id = req.params.id
+    models.Guide.findById(id).then(response => {
         res.send(response);
     })
 
