@@ -40,7 +40,7 @@ exports.getripbbyid = function (req, res, next) {
         where: {id: id},
         include: [{
             model: models.Guide,
-            attributes: ['name', 'email', 'gender']
+            attributes: ['name','surname', 'email', 'gender']
 
         }, {
             model: models.Schedule
