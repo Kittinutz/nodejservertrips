@@ -14,7 +14,10 @@ module.exports = function(app){
     app.post('/testapitask',Application.postapplication);
     app.get('/api/guide',Application.getguide);
     app.get('/api/guide/:id',Application.getguideByid);
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 
     /****BROWSER***/
     app.get('/api/browser/activities',ApplicationBroser.getactivities);
