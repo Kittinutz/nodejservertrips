@@ -43,6 +43,7 @@ models.Task.belongsTo(models.User,{foreignKey: 'user_id'});
 /*********************Many To Many*****************/
 models.User.belongsToMany(models.Trip,{through:models.Booking,foreignKey:'user_id',otherKey:'trip_id'});
 models.Trip.belongsToMany(models.User,{through:models.Booking,foreignKey:'user_id',otherKey:'trip_id'});
+models.Booking.hasOne(models.Trip,{foreignKey:'id'});
 models.Task.belongsToMany(models.Activities, { through:models.Task_Activities, foreignKey: 'task_id', otherKey: 'activitie_id' });
 models.Task.belongsToMany(models.Places, { through:models.Task_Places, foreignKey: 'task_id', otherKey: 'place_id' });
 models.Activities.belongsToMany(models.Task, {  through:models.Task_Activities, foreignKey: 'activitie_id', otherKey: 'task_id' });

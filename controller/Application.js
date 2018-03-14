@@ -84,8 +84,14 @@ exports.booking = function (req, res, next) {
           res.send(response);
       })
 
-
-
-
-
 };
+exports.getbooking = function (req,res,next) {
+    models.Booking.findOne({
+        include:[{
+            model:models.Trip
+        }]
+    }).then(response=>{
+        res.send(response);
+    })
+
+}
