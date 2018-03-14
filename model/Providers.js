@@ -15,6 +15,7 @@ const Places_Activities = require('../model/Place_Activities')(config.sequelize,
 const Task_Languages = require('../model/Task_Languages')(config.sequelize,config.Sequelize);
 const Languages_guide = require('../model/Languages_guides')(config.sequelize,config.Sequelize);
 const Trips_Places = require('../model/Trips_Places')(config.sequelize,config.Sequelize);
+const Booking = require('../model/Booking')(config.sequelize,config.Sequelize);
 
 /* DEFIND MODEL */
 models.User = User;
@@ -31,6 +32,7 @@ models.Places_Activities = Places_Activities;
 models.Task_Languages = Task_Languages;
 models.Languages_guide = Languages_guide;
 models.Trips_Places = Trips_Places;
+models.Booking = Booking,
 
 
 /* Relations */
@@ -39,6 +41,8 @@ models.User.hasMany(models.Task,{foreignKey: 'user_id'});
 models.Task.belongsTo(models.User,{foreignKey: 'user_id'});
 
 /*********************Many To Many*****************/
+models.User.belongsToMany(models.Trip,{through:models.Booking,foreignKey:'user_id',otherKey:'trip_id'});
+models.Trip.belongsToMany(models.User,{through:models.Booking,foreignKey:'user_id',otherKey:'trip_id'});
 models.Task.belongsToMany(models.Activities, { through:models.Task_Activities, foreignKey: 'task_id', otherKey: 'activitie_id' });
 models.Task.belongsToMany(models.Places, { through:models.Task_Places, foreignKey: 'task_id', otherKey: 'place_id' });
 models.Activities.belongsToMany(models.Task, {  through:models.Task_Activities, foreignKey: 'activitie_id', otherKey: 'task_id' });

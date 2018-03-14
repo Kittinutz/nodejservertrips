@@ -10,5 +10,6 @@ module.exports = function(app){
     app.get('/',Authentication.message);
     app.post('/signin',requireSignin,Authentication.signin);
     app.post('/signup',Authentication.signup);
+    app.post('/bookingtrip',Application.booking);
 
 }
