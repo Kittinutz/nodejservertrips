@@ -71,12 +71,8 @@ exports.getguideByid = function (req, res, next) {
 };
 exports.booking = function (req, res, next) {
     console.log(req.body);
-    var email = req.body.email;
-  models.User.find({where:{email:email}}).then(response=>{
-     var  id = response.id;
-     console.log(id);
       models.Booking.create({
-          user_id:id,
+          user_id:2,
           trip_id:req.body.tripid,
           appointment:req.body.date,
           numberofAdult:req.body.adult,
@@ -88,7 +84,7 @@ exports.booking = function (req, res, next) {
           res.send(response);
       })
 
-    });
+
 
 
 
