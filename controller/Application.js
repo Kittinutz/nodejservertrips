@@ -40,7 +40,7 @@ exports.getripbbyid = function (req, res, next) {
         where: {id: id},
         include: [{
             model: models.Guide,
-            attributes: ['name','surname', 'email', 'gender']
+            attributes: ['name', 'surname', 'email', 'gender']
 
         }, {
             model: models.Schedule
@@ -67,5 +67,29 @@ exports.getguideByid = function (req, res, next) {
     models.Guide.findById(id).then(response => {
         res.send(response);
     })
+
+};
+exports.booking = function (req, res, next) {
+    console.log(req.body);
+    var email = req.body.email;
+  models.User.find({where:{email:email}}).then(response=>{
+     var  id = response.id;
+     console.log(id);
+      models.Booking.create({
+          user_id:id,
+          trip_id:req.body.tripid,
+          appointment:req.body.date,
+          numberofAdult:req.body.adult,
+          numberofchilde:req.body.child,
+          totalprice:req.body.totalprice,
+          commission:req.body.totalprice*0.07,
+          price:req.body.totalprice+req.body.totalprice*0.07
+      }).then(response=>{
+          res.send(response);
+      })
+
+    });
+
+
 
 };
