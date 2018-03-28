@@ -71,7 +71,7 @@ exports.getguideByid = function (req, res, next) {
 };
 exports.booking = function (req, res, next) {
     console.log(req.body);
-      models.Booking.create({
+      models.User_Trip.create({
           user_id:2,
           trip_id:req.body.tripid,
           appointment:req.body.date,
