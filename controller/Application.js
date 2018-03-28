@@ -2,6 +2,17 @@ const models = require('../model/Providers');
 const jwt = require('jwt-simple');
 const config = require('../config');
 const socket = require('../index');
+
+function tokenForUser(user) {
+    const timestamp = new Date().getTime();
+    return jwt.encode({sub: user.id, iat: timestamp}, config.secret);
+
+}
+function tokenDecode(user) {
+    return jwt.decode(user, config.secret);
+
+}
+
 exports.getactivities = function (req, res, next) {
     models.Activities.findAll({
         attributes: ['id', 'name']
@@ -86,9 +97,10 @@ exports.booking = function (req, res, next) {
 
 };
 exports.getbooking = function (req,res,next) {
+    var user = tokenDecode(req.headers.authorization);
     models.User_Trip.findAll({
         where:{
-          user_id:1,
+          user_id:user.sub,
         },
         include:[{
             model:models.Trip
