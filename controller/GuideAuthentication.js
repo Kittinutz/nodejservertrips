@@ -34,7 +34,7 @@ exports.signup = function (req, res, next) {
             if(!guide)
         {
             models.Guide.create(req.body).then(guide => {
-
+                guide.setLanguages([6]);
                 return res.json({token: tokenForUser(guide)});
         }).
             catch(function (err) {
