@@ -2,7 +2,7 @@ const bcrypt = require("bcrypt-nodejs");
 const models = require('./Providers');
 module.exports = (sequelize , DataTypes) =>
 {
-    var Booking = sequelize.define("bookings", {
+    var Booking = sequelize.define("user_trips", {
         id: {
             type: DataTypes.INTEGER(10).UNSIGNED,
             autoIncrement: true,
