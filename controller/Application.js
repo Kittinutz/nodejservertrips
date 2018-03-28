@@ -86,7 +86,10 @@ exports.booking = function (req, res, next) {
 
 };
 exports.getbooking = function (req,res,next) {
-    models.Booking.findOne({
+    models.Booking.findAll({
+        where:{
+          user_id:1,
+        },
         include:[{
             model:models.Trip
         }]
