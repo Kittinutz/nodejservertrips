@@ -105,7 +105,8 @@ exports.getbooking = function (req,res,next) {
         include:[{
             model:models.Trip,
             include:[{
-                model:models.Guide
+                model:models.Guide,
+                attributes:['id','name','surname','email','image']
             }]
         }]
     }).then(response=>{
