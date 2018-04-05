@@ -114,9 +114,9 @@ exports.getbooking = function (req,res,next) {
     })
 
 }
-exports.getbookingbyid = (req,res,next)=>{
+exports.getbookingbyid = async (req,res,next)=>{
     const id = req.body.id;
-    models.User_Trip.findAll({
+   const response = await models.User_Trip.findAll({
         where:{
             id:id
         },
@@ -142,4 +142,5 @@ exports.getbookingbyid = (req,res,next)=>{
             }]
         }]
     })
+    res.send(response);
 }
