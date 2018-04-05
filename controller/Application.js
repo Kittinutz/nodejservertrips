@@ -114,9 +114,9 @@ exports.getbooking = function (req,res,next) {
     })
 
 }
-exports.getbookingbyid = async (req,res,next)=>{
+exports.getbookingbyid =  (req,res,next)=>{
     const id = req.params.id;
-   const response = await models.User_Trip.findAll({
+  models.User_Trip.findAll({
         where:{
             id:id
         },
@@ -141,6 +141,8 @@ exports.getbookingbyid = async (req,res,next)=>{
                 attributes:['id','name','surname','email','image']
             }]
         }]
-    })
-    res.send(response);
+    }).then(response =>{
+      res.send(response)
+  })
+
 }
