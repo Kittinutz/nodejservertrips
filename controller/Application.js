@@ -115,7 +115,7 @@ exports.getbooking = function (req,res,next) {
 
 }
 exports.getbookingbyid = async (req,res,next)=>{
-    const id = req.body.id;
+    const id = req.params.id;
    const response = await models.User_Trip.findAll({
         where:{
             id:id
