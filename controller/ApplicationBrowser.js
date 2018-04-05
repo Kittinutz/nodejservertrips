@@ -43,3 +43,4 @@ exports.getPlacebyactivities = function (req,res,next) {
 
 };
 
+
