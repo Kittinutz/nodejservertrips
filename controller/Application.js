@@ -105,11 +105,41 @@ exports.getbooking = function (req,res,next) {
         include:[{
             model:models.Trip,
             include:[{
-                model:models.Guide
+                model:models.Guide,
+                attributes:['id','name','surname','email','image']
             }]
         }]
     }).then(response=>{
         res.send(response);
     })
 
+}
+exports.getbookingbyid = (req,res,next)=>{
+    const id = req.body.id;
+    models.User_Trip.findAll({
+        where:{
+            id:id
+        },
+        include:[{
+            model:models.Trip,
+            include:[{
+                model:models.Schedule,
+            },{
+                model:models.Places,
+                distinct:'name_place',
+                through: {
+                    attributes: []
+                },
+                include:[{
+                    model:models.Activities,
+                    through: {
+                        attributes: []
+                    },
+                }]
+            },{
+                model:models.Guide,
+                attributes:['id','name','surname','email','image']
+            }]
+        }]
+    })
 }

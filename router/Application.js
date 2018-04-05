@@ -21,6 +21,7 @@ module.exports = function(app){
     app.get('/api/browser/languages',ApplicationBroser.getlanguages);
     app.get('/api/placebyactivities',ApplicationBroser.getPlacebyactivities);
     app.get('/api/mybooking',Application.getbooking);
+    app.get('/api/mybooking/:id',Application.getbookingbyid);
 
 
 
