@@ -116,6 +116,7 @@ exports.getbooking = function (req,res,next) {
 }
 exports.getbookingbyid =  (req,res,next)=>{
     const id = req.body.id;
+    console.log(req.body.id)
   models.User_Trip.findAll({
         where:{
             id:id
