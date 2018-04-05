@@ -103,7 +103,10 @@ exports.getbooking = function (req,res,next) {
           user_id:user.sub,
         },
         include:[{
-            model:models.Trip
+            model:models.Trip,
+            include:[{
+                model:models.Guide
+            }]
         }]
     }).then(response=>{
         res.send(response);
