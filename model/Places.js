@@ -19,7 +19,7 @@ module.exports = (sequelize , DataTypes) =>
         },
         image:{
             type: DataTypes.STRING,
-            field: 'description'
+            field: 'image'
         },
         lat: {
             type: DataTypes.DECIMAL(9,6),
