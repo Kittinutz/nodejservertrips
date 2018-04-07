@@ -15,6 +15,12 @@ module.exports = (sequelize , DataTypes) =>
             allowNull: false,
             unique: 'compositeIndex',
         },
+        image: {
+            type: DataTypes.STRING(191),
+            field: 'image',
+            allowNull: true,
+        },
+
         status: {
             field: 'status',
             type: DataTypes.ENUM('on', 'off'),
