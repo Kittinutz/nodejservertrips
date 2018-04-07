@@ -15,7 +15,7 @@ function tokenDecode(user) {
 
 exports.getactivities = function (req, res, next) {
     models.Activities.findAll({
-        attributes: ['id', 'name']
+        attributes: ['id', 'name','image']
     }).then(activities => {
         res.send(activities);
     })
