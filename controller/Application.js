@@ -147,3 +147,21 @@ exports.getbookingbyid =  (req,res,next)=>{
   })
 
 }
+exports.getplacebyactivities = (req,res)=>{
+    let {name} =  req.body;
+    name = name.split("-").join("");
+    console.log(name);
+    models.Activities.findOne({
+        where:{
+            name:name
+        },attributes:[],include:[{
+            model:models.Places,
+            through:{
+                attributes:[]
+            }
+        }]
+    }).then(respose=>{
+        res.send(respose);
+    })
+
+}
