@@ -14,6 +14,7 @@ module.exports = function(app){
     app.post('/testapitask',Application.postapplication);
     app.get('/api/guide',Application.getguide);
     app.get('/api/guide/:id',Application.getguideByid);
+    app.post('/api/getplacebyactivities',Application.getplacebyactivities)
 
 
     /****BROWSER***/
