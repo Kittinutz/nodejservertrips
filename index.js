@@ -32,6 +32,7 @@ const Task = require('./controller/TaskController');
 app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static('public/icon'))
 /***********git diff****************************/
 
 
