@@ -15,6 +15,9 @@ module.exports = function(app){
     app.get('/api/guide',Application.getguide);
     app.get('/api/guide/:id',Application.getguideByid);
     app.post('/api/getplacebyactivities',Application.getplacebyactivities)
+    app.get('/api/testparam/',(req,res,next)=>{
+        console.log(req.query)
+    })
 
 
     /****BROWSER***/
