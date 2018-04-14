@@ -158,7 +158,6 @@ exports.getplacebyactivities = (req, res) => {
     }, attributes: [],
     include: [{
       model: models.Places,
-      attributes:[],
       through: {
         attributes: []
       }
