@@ -2,7 +2,7 @@ const bcrypt = require("bcrypt-nodejs");
 const models = require('./Providers');
 module.exports = (sequelize , DataTypes) =>
 {
-    var Task_Places = sequelize.define("tasks_places", {
+    var Task_Places = sequelize.define("task_places", {
         id: {
             type: DataTypes.INTEGER(10).UNSIGNED,
             autoIncrement: true,
@@ -22,7 +22,7 @@ module.exports = (sequelize , DataTypes) =>
             type: DataTypes.INTEGER(10).UNSIGNED,
             field: 'place_id',
             references: {
-                model:models.Activities,
+                model:models.Places,
                 key: 'id'
             },
 
@@ -32,7 +32,6 @@ module.exports = (sequelize , DataTypes) =>
             field: 'created_at',
             type: DataTypes.DATE,
             primaryKey: false,
-            autoIncrement: false,
         },
         updatedAt: {
             field: 'updated_at',
