@@ -48,8 +48,8 @@ exports.CreateTask = function (req, res, next) {
   
   socket.io.emit('news', {task: 'have new task', languages: req.body.languages});
   models.Task.create({
-
       user_id: user.sub,
+      name:name,
       appointment: appointment,
       numberofperson: adult
   }).then(response => {
