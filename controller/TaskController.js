@@ -68,9 +68,11 @@ exports.getOwnTask = function (req, res, next) {
       where: {user_id: user.sub},
       include: [{
         model: models.Languages,
-        attributes: ['name']
+        attributes: ['name'],
+        through:{attributes:[]}
       }, {
         model: models.Places,
+        through:{attributes:[]}
       }],
       order: [
         ['id', 'DESC']
