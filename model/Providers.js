@@ -62,6 +62,7 @@ models.Activities.belongsToMany(models.Task, {
     otherKey: 'task_id'
 });
 
+models.Places.belongsToMany(models.Task,{through:models.Task_Places,foreignKey:'task_id'})
 models.Guide.hasMany(models.Trip, {foreignKey: 'id'});
 models.Trip.belongsTo(models.Guide, {foreignKey: 'creater_id'});
 models.Trip.hasMany(models.Schedule, {foreignKey: 'trip_id'});
