@@ -70,8 +70,7 @@ exports.getOwnTask = function (req, res, next) {
         model: models.Languages,
         attributes: ['name']
       }, {
-        model: models.Activities,
-        attributes: ['name']
+        model: models.Places,
       }],
       order: [
         ['id', 'DESC']
