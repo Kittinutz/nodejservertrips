@@ -13,6 +13,10 @@ module.exports = (sequelize , DataTypes) =>
             type: DataTypes.INTEGER(10).UNSIGNED,
             field: 'user_id',
         },
+        name:{
+            type:DataTypes.VARCHAR(50),
+            field:'name'
+        },
         appointment: {
             type: DataTypes.STRING,
             field: 'appointment'
