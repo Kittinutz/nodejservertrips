@@ -14,7 +14,7 @@ module.exports = (sequelize , DataTypes) =>
             field: 'user_id',
         },
         name:{
-            type:DataTypes.VARCHAR(50),
+            type:DataTypes.STRING(50),
             field:'name'
         },
         appointment: {
