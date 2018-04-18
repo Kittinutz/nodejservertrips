@@ -9,9 +9,8 @@ function tokenForUser(user) {
   
 }
 
-function tokenDecode(user) {
-  return jwt.decode(user, config.secret);
-  
+function tokenDecode(user){
+  return jwt.decode(user,config.secret);
 }
 
 exports.getactivities = function (req, res, next) {
@@ -82,7 +81,10 @@ exports.getguideByid = function (req, res, next) {
   
 };
 exports.booking = function (req, res, next) {
+  console.log(req.header.authorization);
+  console.log(req.body);
   var user = tokenDecode(req.headers.authorization);
+
   console.log(user.sub);
   models.User_Trip.create({
     user_id: user.sub,
