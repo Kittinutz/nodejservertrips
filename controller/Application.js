@@ -83,7 +83,7 @@ exports.getguideByid = function (req, res, next) {
 };
 exports.booking = function (req, res, next) {
   var user = tokenDecode(req.headers.authorization);
-  console.log(req.body);
+  console.log(user.sub);
   models.User_Trip.create({
     user_id: user.sub,
     trip_id: req.body.tripid,
