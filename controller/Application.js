@@ -81,8 +81,8 @@ exports.getguideByid = function (req, res, next) {
   
 };
 exports.booking = function (req, res, next) {
-  console.log(req.header.authorization);
-  console.log(req.body);
+  console.log('header',req.headers.authorization);
+  console.log('body',req.body);
   var user = tokenDecode(req.headers.authorization);
 
   console.log(user.sub);
