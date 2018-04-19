@@ -112,7 +112,8 @@ exports.getbooking = function (req, res, next) {
         model: models.Guide,
         attributes: ['id', 'name', 'surname', 'email', 'image']
       }]
-    }]
+    }],
+    order:['id','DESC'],
   }).then(response => {
     res.send(response);
   })
