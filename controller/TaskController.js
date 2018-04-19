@@ -46,7 +46,7 @@ exports.CreateTask = function (req, res, next) {
   })
   console.log('languages',languages,'places',plances);
   
-  socket.io.emit('news', {task: 'have new task', languages: req.body.languages});
+  socket.io.emit('news', {task: 'have new task', languages: languages});
   models.Task.create({
       user_id: user.sub,
       name:req.body.name,
