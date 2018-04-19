@@ -113,7 +113,7 @@ exports.getbooking = function (req, res, next) {
         attributes: ['id', 'name', 'surname', 'email', 'image']
       }]
     }],
-    order:['id','DESC'],
+    order:[['id','DESC'],],
   }).then(response => {
     res.send(response);
   })
