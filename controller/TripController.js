@@ -98,3 +98,19 @@ exports.getripbyuser = function (req, res, next) {
         res.send(response);
     })
 }
+exports.getBooking = async function (req,res) {
+  var user = tokenDecode(req.headers.authorization);
+  response =  await  models.User_Trip.findAll({
+    include:[
+      {
+        model:models.User,
+        attributes:['name','email','avatar']
+      },
+      {
+          model:models.Trip,
+          where:{creater_id:user.sub}
+      }
+    ]
+  })
+  res.send(response);
+}
