@@ -91,8 +91,7 @@ exports.Notification = (req, res, next) => {
         model: models.User
       },
       {
-        model: models.Activities,
-        attributes: ['id', 'name'],
+        model: models.Places,
         through: {attributes: []},
       },
       {
