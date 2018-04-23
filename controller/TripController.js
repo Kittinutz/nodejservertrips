@@ -100,7 +100,8 @@ exports.getripbyuser = function (req, res, next) {
 }
 exports.getBooking =  function (req,res) {
   var user = tokenDecode(req.headers.authorization);
-  response =    models.User_Trip.findAll({
+  console.log(req.headers.authorization);
+  models.User_Trip.findAll({
     include:[
       {
         model:models.User,
@@ -111,6 +112,7 @@ exports.getBooking =  function (req,res) {
           where:{creater_id:user.sub}
       }
     ]
+  }).then(response=>{
+      res.send(response)
   })
-  res.send(response);
 }
