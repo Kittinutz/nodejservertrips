@@ -1,7 +1,6 @@
 exports.socket = (io) => {
     io.on('connection', (socket) => {
         console.log('userconnect')
-        socket.emit("kittinutPramhan","helloworld")
         socket.on('subscribe', (username) => {
             console.log(username);
             socket.join(username);
