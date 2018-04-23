@@ -44,9 +44,9 @@ models.Task.belongsTo(models.User, {foreignKey: 'user_id'});
 
 models.User.belongsToMany(models.Trip, {through: models.User_Trip, foreignKey: 'user_id', otherKey: 'trip_id'});
 models.Trip.belongsToMany(models.User, {through: models.User_Trip, foreignKey: 'user_id', otherKey: 'trip_id'});
-models.User_Trip.hasOne(models.Trip, {foreignKey: 'id'});
-models.User_Trip.belongsTo(models.Trip, {foreignKey: 'trip_id'});
 
+models.User_Trip.belongsTo(models.Trip, {foreignKey: 'trip_id'});
+models.User_Trip.belongsTo(models.User,{foreignKey:'user_id'});
 
 models.Task.belongsToMany(models.Activities, {
     through: models.Task_Activities,
