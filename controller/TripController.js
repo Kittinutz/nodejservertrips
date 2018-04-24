@@ -128,7 +128,12 @@ exports.getBookingbyId =function (req,res) {
       },
       {
         model:models.Trip,
-        where:{creater_id:user.sub}
+        where:{creater_id:user.sub},
+        include:[{
+          model:models.Places,
+        },{
+          model:models.Schedule
+        }]
       }
     ]
   }).then(response=>{
