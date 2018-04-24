@@ -17,4 +17,5 @@ module.exports = function (app) {
     app.get('/guide/notification/task',requireAuth,TaskController.Notification);
     app.get('/guide/languages',requireAuth,GuideAuthentication.getOwnLanguages);
     app.get('/guide/booking',requireAuth,TripController.getBooking);
+    app.get('/guide/booking/:id',requireAuth,TripController.getBookingbyId);
 }
