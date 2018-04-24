@@ -116,3 +116,24 @@ exports.getBooking =  function (req,res) {
       res.send(response)
   })
 }
+exports.getBookingbyId =function (req,res) {
+  const {id} =req.params;
+  var user = tokenDecode(req.headers.authorization);
+  models.User_Trip.find({
+    where:{id:id},
+    include:[
+      {
+        model:models.User,
+        attributes:['name','email','avatar']
+      },
+      {
+        model:models.Trip,
+        where:{creater_id:user.sub}
+      }
+    ]
+  }).then(response=>{
+    res.send(response);
+  })
+ 
+  
+}
