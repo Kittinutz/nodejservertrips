@@ -46,10 +46,10 @@ exports.CreateTask = function (req, res, next) {
   })
   console.log('languages',languages,'places',plances);
   
-  socket.io.emit('news', {task: 'have new task', languages: req.body.languages});
+  socket.io.emit('news', {task: 'have new task', languages: languages});
   models.Task.create({
-
       user_id: user.sub,
+      name:req.body.name,
       appointment: appointment,
       numberofperson: adult
   }).then(response => {
@@ -68,9 +68,11 @@ exports.getOwnTask = function (req, res, next) {
       where: {user_id: user.sub},
       include: [{
         model: models.Languages,
-        attributes: ['name']
+        attributes: ['name'],
+        through:{attributes:[]}
       }, {
         model: models.Places,
+        through:{attributes:[]}
       }],
       order: [
         ['id', 'DESC']
@@ -89,8 +91,7 @@ exports.Notification = (req, res, next) => {
         model: models.User
       },
       {
-        model: models.Activities,
-        attributes: ['id', 'name'],
+        model: models.Places,
         through: {attributes: []},
       },
       {

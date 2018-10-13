@@ -98,3 +98,47 @@ exports.getripbyuser = function (req, res, next) {
         res.send(response);
     })
 }
+exports.getBooking =  function (req,res) {
+  var user = tokenDecode(req.headers.authorization);
+  console.log(req.headers.authorization);
+  models.User_Trip.findAll({
+    include:[
+      {
+        model:models.User,
+        attributes:['name','email','avatar']
+      },
+      {
+          model:models.Trip,
+          where:{creater_id:user.sub}
+      }
+    ]
+  }).then(response=>{
+      res.send(response)
+  })
+}
+exports.getBookingbyId =function (req,res) {
+  const {id} =req.params;
+  var user = tokenDecode(req.headers.authorization);
+  models.User_Trip.find({
+    where:{id:id},
+    include:[
+      {
+        model:models.User,
+        attributes:['name','email','avatar']
+      },
+      {
+        model:models.Trip,
+        where:{creater_id:user.sub},
+        include:[{
+          model:models.Places,
+        },{
+          model:models.Schedule
+        }]
+      }
+    ]
+  }).then(response=>{
+    res.send(response);
+  })
+ 
+  
+}

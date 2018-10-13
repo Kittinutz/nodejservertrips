@@ -1,5 +1,6 @@
 exports.socket = (io) => {
     io.on('connection', (socket) => {
+        console.log('userconnect')
         socket.on('subscribe', (username) => {
             console.log(username);
             socket.join(username);

@@ -9,9 +9,8 @@ function tokenForUser(user) {
   
 }
 
-function tokenDecode(user) {
-  return jwt.decode(user, config.secret);
-  
+function tokenDecode(user){
+  return jwt.decode(user,config.secret);
 }
 
 exports.getactivities = function (req, res, next) {
@@ -82,9 +81,13 @@ exports.getguideByid = function (req, res, next) {
   
 };
 exports.booking = function (req, res, next) {
-  console.log(req.body);
+  console.log('header',req.headers.authorization);
+  console.log('body',req.body);
+  var user = tokenDecode(req.headers.authorization);
+
+  console.log(user.sub);
   models.User_Trip.create({
-    user_id: 1,
+    user_id: user.sub,
     trip_id: req.body.tripid,
     appointment: req.body.date,
     numberofAdult: req.body.adult,
@@ -109,7 +112,8 @@ exports.getbooking = function (req, res, next) {
         model: models.Guide,
         attributes: ['id', 'name', 'surname', 'email', 'image']
       }]
-    }]
+    }],
+    order:[['id','DESC'],],
   }).then(response => {
     res.send(response);
   })
